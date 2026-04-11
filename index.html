@@ -60,7 +60,7 @@ html{background:#FFF8F0;}body{font-weight:450;max-width:430px;margin:0 auto;box-
 .sticky-cta{display:none!important}
 .side-cta{display:block;position:fixed;right:calc(((100vw - 640px)/2 - 280px)/2);top:50%;transform:translateY(-50%);z-index:100;opacity:0;pointer-events:none;transition:opacity .4s ease}
 .side-cta.visible{opacity:1;pointer-events:auto}
-.side-cta-inner{display:flex;flex-direction:column;align-items:center;gap:18px;background:#fff;border-radius:24px;padding:36px 28px;box-shadow:0 8px 32px rgba(58,45,31,.1);border:1px solid rgba(224,122,80,.1);width:280px;text-align:center}
+.side-cta-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;background:#fff;border-radius:24px;padding:36px 28px;box-shadow:0 8px 32px rgba(58,45,31,.1);border:1px solid rgba(224,122,80,.1);width:280px;text-align:center}
 .side-cta-inner .side-label{font-family:'Zen Maru Gothic',sans-serif;font-size:1.3rem;font-weight:700;color:var(--bk);line-height:1.7}
 .side-cta-inner .side-btn{display:block;width:100%;padding:16px 0;border-radius:9999px;border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-size:1rem;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--co),#D0633A);box-shadow:0 4px 14px rgba(224,122,80,.3);transition:transform .2s,box-shadow .2s;text-decoration:none;text-align:center;position:relative;overflow:hidden}
 .side-cta-inner .side-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(224,122,80,.4)}
@@ -121,7 +121,7 @@ html{background:#FFF8F0;}body{font-weight:450;max-width:430px;margin:0 auto;box-
 <span class="tg" style="border:1px solid rgba(224,122,80,.2);background:rgba(255,255,255,.85);color:var(--co)">アプリで完結</span>
 </div>
 <div style="margin-top:20px;display:flex;justify-content:center"><img src="./カラー_シッティ_挨拶.png" alt="シッティ" style="height:90px;width:auto;filter:drop-shadow(0 4px 8px rgba(58,45,31,.08));animation:bounce 2.5s ease-in-out infinite"></div>
-<div id="hero-cta" style="margin-top:24px"><button class="cb" style="padding:14px 0 10px"><span>モニターに応募する</span><span style="display:block;font-size:.7rem;font-weight:400;opacity:.7;margin-top:2px">応募は無料・1分で完了</span></button></div>
+<div id="hero-cta" style="margin-top:24px"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfTBHFbqWCoWncqLt-wKE02mDBNJ6YMJcvZyoVVHVEAuLmlfw/viewform?usp=publish-editor" target="_blank" style="text-decoration:none"><button class="cb" style="padding:14px 0 10px"><span>モニターに応募する</span><span style="display:block;font-size:.7rem;font-weight:400;opacity:.7;margin-top:2px">応募は無料・1分で完了</span></button></a></a></div>
 <p style="margin-top:8px;font-size:.8rem;color:var(--bl);opacity:.6">応募締切：2026年◯月◯日</p>
 </div>
 <svg style="position:absolute;bottom:-1px;left:0;width:100%" viewBox="0 0 640 24" fill="none" preserveAspectRatio="none"><path d="M0 24V8c80-10 160-10 240 0s160 10 240 0 160-10 160-10v26H0z" fill="#fff"/></svg>
@@ -274,14 +274,15 @@ html{background:#FFF8F0;}body{font-weight:450;max-width:430px;margin:0 auto;box-
 
 </div>
 <div class="sticky-cta" id="sticky-cta">
-<button class="cb" style="padding:14px 0 10px"><span>モニターに応募する</span><span style="display:block;font-size:.7rem;font-weight:400;opacity:.7;margin-top:2px">応募は無料・1分で完了</span></button>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfTBHFbqWCoWncqLt-wKE02mDBNJ6YMJcvZyoVVHVEAuLmlfw/viewform?usp=publish-editor" target="_blank" style="text-decoration:none"><button class="cb" style="padding:14px 0 10px"><span>モニターに応募する</span><span style="display:block;font-size:.7rem;font-weight:400;opacity:.7;margin-top:2px">応募は無料・1分で完了</span></button></a>
 </div>
 
 <div class="side-cta" id="side-cta">
 <div class="side-cta-inner">
+<button onclick="document.getElementById('side-cta').style.display='none'" style="position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:50%;border:none;background:rgba(58,45,31,.06);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s" onmouseover="this.style.background='rgba(58,45,31,.12)'" onmouseout="this.style.background='rgba(58,45,31,.06)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--bl)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
 <span class="side-free">プラン利用料 無料</span>
 <p class="side-label">プレミアムプラン<br>限定モニター募集中</p>
-<button class="side-btn" style="padding:16px 0 12px"><span>モニターに応募する</span><span style="display:block;font-size:.65rem;font-weight:400;opacity:.7;margin-top:2px">応募は無料・1分で完了</span></button>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfTBHFbqWCoWncqLt-wKE02mDBNJ6YMJcvZyoVVHVEAuLmlfw/viewform?usp=publish-editor" target="_blank" style="text-decoration:none;display:block;width:100%"><button class="side-btn" style="padding:16px 0 12px"><span>モニターに応募する</span><span style="display:block;font-size:.65rem;font-weight:400;opacity:.7;margin-top:2px">応募は無料・1分で完了</span></button></a>
 <p class="side-dl">応募締切：2026年◯月◯日</p>
 </div>
 </div>
