@@ -29,6 +29,19 @@ html{background:#FFF8F0;}body{font-weight:450;max-width:430px;margin:0 auto;box-
 .fc:hover{box-shadow:0 4px 16px rgba(58,45,31,.08);transform:translateY(-2px)}
 .fb{width:5px;flex-shrink:0}
 .fp{flex:1;padding:22px}
+
+.bf{border-radius:var(--rs);background:#fff;box-shadow:0 1px 3px rgba(58,45,31,.06);border:1px solid rgba(58,45,31,.04);cursor:pointer;overflow:hidden;transition:box-shadow .3s}
+.bf:hover{box-shadow:0 2px 8px rgba(58,45,31,.1)}
+.bf-head{display:flex;align-items:center;gap:10px;padding:14px 16px}
+.bf-num{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--sg);color:#fff;font-size:.95rem;font-weight:700;flex-shrink:0}
+.bf-title{flex:1;font-size:1.15rem;font-weight:700;color:var(--bk);line-height:1.4}
+.bf-arrow{flex-shrink:0;display:flex;align-items:center;color:var(--bl);transition:transform .3s}
+.bf.open .bf-arrow{transform:rotate(180deg)}
+.bf-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.bf.open .bf-body{max-height:300px}
+.bf-body p,.bf-body div{padding:0 16px 16px 50px;font-size:.9rem;line-height:1.85;color:var(--bl)}
+.bf-body>div{padding:0 16px 16px 16px}
+
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .tg{display:inline-block;border-radius:9999px;padding:6px 16px;font-size:.9rem;font-weight:500}
 .fi{border-bottom:1px solid rgba(58,45,31,.06)}
@@ -184,46 +197,78 @@ html{background:#FFF8F0;}body{font-weight:450;max-width:430px;margin:0 auto;box-
 </section>
 
 <section style="background:var(--sg2);padding:68px 28px">
-<div class="sh"><div class="sd"><span style="background:var(--sg)"></span><i style="background:var(--sg)"></i><span style="background:var(--sg)"></span></div><h2>モニター限定特典</h2><p class="se">BENEFITS</p></div>
-<div class="g2">
-<div class="cd" style="text-align:center;padding:22px 16px"><div style="display:flex;justify-content:center"><div class="ic" style="width:50px;height:50px;border-radius:16px;background:rgba(111,175,144,.08)"><svg style="width:24px;height:24px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></div></div><span class="z" style="display:block;margin-top:14px;font-size:1.25rem;font-weight:700;color:var(--bk)">面談クーポン</span><span style="display:block;margin-top:3px;font-size:1rem;font-weight:700;color:var(--sg)">3名分無料</span><p style="margin-top:10px;font-size:.875rem;line-height:1.8;color:var(--bl)">シッターとの面談が無料に。相性の合うシッターを見つけやすくなります。</p></div>
-<div class="cd" style="text-align:center;padding:22px 16px"><div style="display:flex;justify-content:center"><div class="ic" style="width:50px;height:50px;border-radius:16px;background:rgba(111,175,144,.08)"><svg style="width:24px;height:24px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg></div></div><span class="z" style="display:block;margin-top:14px;font-size:1.25rem;font-weight:700;color:var(--bk)">夜間クーポン</span><span style="display:block;margin-top:3px;font-size:1rem;font-weight:700;color:var(--sg)">割増料金を補填</span><p style="margin-top:10px;font-size:.875rem;line-height:1.8;color:var(--bl)">22時〜翌5時の深夜帯の割増料金を全額補填。月2回までご利用いただけます。</p></div>
-<div class="cd" style="text-align:center;padding:22px 16px"><div style="display:flex;justify-content:center"><div class="ic" style="width:50px;height:50px;border-radius:16px;background:rgba(111,175,144,.08)"><svg style="width:24px;height:24px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M17 14h-6"/><path d="M13 18H7"/><path d="M7 14h.01"/><path d="M17 18h.01"/></svg></div></div><span class="z" style="display:block;margin-top:14px;font-size:1.25rem;font-weight:700;color:var(--bk)">定期クーポン</span><span style="display:block;margin-top:3px;font-size:1rem;font-weight:700;color:var(--sg)">20%OFF</span><p style="margin-top:10px;font-size:.875rem;line-height:1.8;color:var(--bl)">定期利用時のシッティング料金を20%割引。長く使うほどお得です。</p></div>
-<div class="cd" style="text-align:center;padding:22px 16px"><div style="display:flex;justify-content:center"><div class="ic" style="width:50px;height:50px;border-radius:16px;background:rgba(111,175,144,.08)"><svg style="width:24px;height:24px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div></div><span class="z" style="display:block;margin-top:14px;font-size:1.25rem;font-weight:700;color:var(--bk)">見守りカメラ</span><span style="display:block;margin-top:3px;font-size:1rem;font-weight:700;color:var(--sg)">無償提供</span><p style="margin-top:10px;font-size:.875rem;line-height:1.8;color:var(--bl)">ご希望の方に見守りカメラを無償でお届け。お子さまの様子をいつでも確認。</p></div>
-</div>
-<div class="cd" style="margin-top:18px;text-align:center;border:1.5px dashed rgba(111,175,144,.35)">
-<div style="display:flex;justify-content:center"><svg style="width:28px;height:28px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg></div>
-<p class="z" style="margin-top:10px;font-size:1.3rem;font-weight:700;color:var(--bk);line-height:1.7">さらに、モニター期間中の<br>キャンセル料は全額補填</p>
-<p style="margin-top:8px;font-size:.8rem;color:var(--bl);line-height:1.75">お子さまやご家庭の急な事情でも費用は発生しません。</p>
-</div>
-</section>
+<div class="sh"><div class="sd"><span style="background:var(--sg)"></span><i style="background:var(--sg)"></i><span style="background:var(--sg)"></span></div><h2>プラン限定特典</h2><p class="se">BENEFITS</p></div>
 
-<section style="background:#fff;padding:68px 28px">
-<div class="sh"><div class="sd"><span></span><i></i><span></span></div><h2>ご参加条件</h2><p class="se">REQUIREMENTS</p></div>
-<div style="display:flex;flex-direction:column;gap:16px">
-<div style="border-radius:var(--r);padding:22px;background:var(--cm);border:1px solid rgba(224,122,80,.08)">
-<div style="display:flex;align-items:center;gap:10px"><div style="width:4px;height:18px;border-radius:9999px;background:var(--co)"></div><p style="font-size:1rem;font-weight:700;color:var(--co);letter-spacing:.05em">必須条件</p></div>
-<ul style="margin-top:18px;list-style:none;display:flex;flex-direction:column;gap:14px">
-<li style="display:flex;align-items:flex-start;gap:12px;font-size:1rem;line-height:1.85;color:var(--bm)"><span style="margin-top:3px;display:flex;width:22px;height:22px;flex-shrink:0;align-items:center;justify-content:center;border-radius:50%;background:var(--sg);color:#fff"><svg style="width:12px;height:12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>0歳のお子さまがいらっしゃること（出産直後の方、出産予定の方もOK）</li>
-<li style="display:flex;align-items:flex-start;gap:12px;font-size:1rem;line-height:1.85;color:var(--bm)"><span style="margin-top:3px;display:flex;width:22px;height:22px;flex-shrink:0;align-items:center;justify-content:center;border-radius:50%;background:var(--sg);color:#fff"><svg style="width:12px;height:12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><span>以下のエリアにお住まいであること</span><div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px"><span style="padding:4px 12px;border-radius:9999px;font-size:.8rem;font-weight:600;background:var(--sg2);color:var(--sg)">東京都</span><span style="padding:4px 12px;border-radius:9999px;font-size:.8rem;font-weight:600;background:var(--sg2);color:var(--sg)">神奈川県</span><span style="padding:4px 12px;border-radius:9999px;font-size:.8rem;font-weight:600;background:var(--sg2);color:var(--sg)">埼玉県</span><span style="padding:4px 12px;border-radius:9999px;font-size:.8rem;font-weight:600;background:var(--sg2);color:var(--sg)">千葉県</span><span style="padding:4px 12px;border-radius:9999px;font-size:.8rem;font-weight:600;background:var(--sg2);color:var(--sg)">大阪府</span><span style="padding:4px 12px;border-radius:9999px;font-size:.8rem;font-weight:600;background:var(--sg2);color:var(--sg)">兵庫県</span></div></div></li>
-<li style="display:flex;align-items:flex-start;gap:12px;font-size:1rem;line-height:1.85;color:var(--bm)"><span style="margin-top:3px;display:flex;width:22px;height:22px;flex-shrink:0;align-items:center;justify-content:center;border-radius:50%;background:var(--sg);color:#fff"><svg style="width:12px;height:12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div>月間30時間以上のご利用を想定していること<div style="margin-top:8px;display:flex;align-items:flex-start;gap:8px;background:var(--sg2);border-radius:10px;padding:10px 12px"><svg style="width:16px;height:16px;flex-shrink:0;margin-top:1px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span style="font-size:.8rem;line-height:1.7;color:var(--bm)">ご利用開始後、ペースが合わないと感じた場合はご相談ください</span></div></div></li>
-</ul>
+<div style="display:flex;flex-direction:column;gap:10px">
+
+<div class="bf" onclick="toggleBenefit(this)">
+<div class="bf-head">
+<span class="bf-num">1</span>
+<div class="ic" style="width:38px;height:38px;border-radius:10px;background:rgba(111,175,144,.08)"><svg style="width:20px;height:20px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+<span class="bf-title">専任スタッフが<br>シッターを紹介</span>
+<span class="bf-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
 </div>
-<div style="border-radius:var(--r);padding:22px;background:var(--cm);border:1px solid rgba(224,122,80,.08)">
-<div style="display:flex;align-items:center;gap:10px"><div style="width:4px;height:18px;border-radius:9999px;background:var(--sg)"></div><p style="font-size:1rem;font-weight:700;color:var(--sg);letter-spacing:.05em">歓迎条件</p></div>
-<ul style="margin-top:18px;list-style:none">
-<li style="display:flex;align-items:flex-start;gap:12px;font-size:1rem;line-height:1.85;color:var(--bm)"><span style="margin-top:3px;display:flex;width:22px;height:22px;flex-shrink:0;align-items:center;justify-content:center;border-radius:50%;background:var(--gd);color:#fff"><svg style="width:12px;height:12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>夜間〜早朝（20時〜翌5時）のシッティング利用をご希望の方</li>
-</ul>
+<div class="bf-body"><p>ヒアリングをもとに、お子さまやご家庭に合ったシッターを運営が選んでご提案します。</p></div>
+</div>
+
+<div class="bf" onclick="toggleBenefit(this)">
+<div class="bf-head">
+<span class="bf-num">2</span>
+<div class="ic" style="width:38px;height:38px;border-radius:10px;background:rgba(111,175,144,.08)"><svg style="width:20px;height:20px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></div>
+<span class="bf-title">シッター間の<br>引き継ぎサポート</span>
+<span class="bf-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+</div>
+<div class="bf-body"><p>複数のシッターが担当する場合も、運営がお子さまの情報や保育の注意点を引き継ぎ。何度も同じことを説明する必要がありません。</p></div>
+</div>
+
+<div class="bf" onclick="toggleBenefit(this)">
+<div class="bf-head">
+<span class="bf-num">3</span>
+<div class="ic" style="width:38px;height:38px;border-radius:10px;background:rgba(111,175,144,.08)"><svg style="width:20px;height:20px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
+<span class="bf-title">定期ヒアリングで<br>使い方をご提案</span>
+<span class="bf-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+</div>
+<div class="bf-body"><p>お子さまの成長に合わせた利用スタイルの見直しや、新しい使い方のご提案。お困りごとの相談にも対応します。</p></div>
+</div>
+
+<div class="bf" onclick="toggleBenefit(this)">
+<div class="bf-head">
+<span class="bf-num">4</span>
+<div class="ic" style="width:38px;height:38px;border-radius:10px;background:rgba(111,175,144,.08)"><svg style="width:20px;height:20px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></div>
+<span class="bf-title">各種割引クーポン</span>
+<span class="bf-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+</div>
+<div class="bf-body">
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;align-items:center;gap:10px;background:var(--sg2);border-radius:8px;padding:8px 12px"><span style="font-size:.85rem;font-weight:700;color:var(--sg);white-space:nowrap">面談</span><span style="font-size:.85rem;color:var(--bm)">シッターとの面談が3名分無料</span></div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--sg2);border-radius:8px;padding:8px 12px"><span style="font-size:.85rem;font-weight:700;color:var(--sg);white-space:nowrap">夜間</span><span style="font-size:.85rem;color:var(--bm)">深夜帯の割増料金を全額補填（月2回）</span></div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--sg2);border-radius:8px;padding:8px 12px"><span style="font-size:.85rem;font-weight:700;color:var(--sg);white-space:nowrap">定期</span><span style="font-size:.85rem;color:var(--bm)">定期利用のシッティング料金を20%OFF</span></div>
 </div>
 </div>
-<div style="margin-top:32px;text-align:center">
-<p style="color:var(--bl);font-size:1rem;line-height:1.95">応募者の中から選考のうえ、<br>限定人数でモニターを実施いたします</p>
-<p class="tg" style="margin-top:10px;background:var(--co2);color:var(--co);border:none">モニター期間：2026年5月〜7月（予定）</p>
 </div>
-<div class="cd" style="margin-top:28px;background:rgba(111,175,144,.04);border-color:rgba(111,175,144,.2)">
-<div style="display:flex;align-items:center;gap:10px"><svg style="width:20px;height:20px;color:var(--gd)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg><p class="z" style="font-size:1.15rem;font-weight:700;color:var(--bk)">すでにKIDSNAシッターを<br>ご利用中の方へ</p></div>
-<p style="margin-top:14px;color:var(--bl);font-size:1rem;line-height:1.95">現在スポット利用がメインの方も、このモニターを機にフルタイム利用をお試しいただけます。専任スタッフによるシッター紹介やモニター限定特典はすべてご利用いただけますので、ぜひご応募ください。</p>
+
+<div class="bf" onclick="toggleBenefit(this)">
+<div class="bf-head">
+<span class="bf-num">5</span>
+<div class="ic" style="width:38px;height:38px;border-radius:10px;background:rgba(111,175,144,.08)"><svg style="width:20px;height:20px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div>
+<span class="bf-title">見守りカメラ無償提供</span>
+<span class="bf-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
 </div>
+<div class="bf-body"><p>ご希望の方に見守りカメラをお届け。シッティング中のお子さまの様子をいつでも確認できます。</p></div>
+</div>
+
+<div class="bf" onclick="toggleBenefit(this)">
+<div class="bf-head">
+<span class="bf-num">6</span>
+<div class="ic" style="width:38px;height:38px;border-radius:10px;background:rgba(111,175,144,.08)"><svg style="width:20px;height:20px;color:var(--sg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg></div>
+<span class="bf-title">キャンセル料全額補填</span>
+<span class="bf-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+</div>
+<div class="bf-body"><p>お子さまの急な体調不良でのキャンセルも安心。モニター期間中のキャンセル料は全額補填いたします。</p></div>
+</div>
+
+</div>
+
 </section>
 
 <section style="background:var(--ln);padding:68px 28px">
@@ -256,7 +301,7 @@ html{background:#FFF8F0;}body{font-weight:450;max-width:430px;margin:0 auto;box-
 <section style="background:var(--ln);padding:68px 28px">
 <div class="sh"><div class="sd"><span></span><i></i><span></span></div><h2>よくあるご質問</h2><p class="se">FAQ</p></div>
 <div id="faq-list">
-<div class="fi"><button class="fq" onclick="toggleFaq(this)"><span class="fb2" style="background:var(--co)">Q</span><span class="ft">モニターは完全無料ですか？</span><span class="fa"><svg style="width:16px;height:16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="fw"><div class="fwi"><span class="fb2" style="background:var(--sg)">A</span><p class="fwt">プラン利用料（入会金・月額費用）は無料ですが、シッティング料金（シッターの時給×利用時間）は通常どおり発生します。面談クーポン・夜間クーポン・定期クーポンなどのモニター限定特典を併用いただくことで、通常よりお得にご利用いただけます。</p></div></div></div>
+<div class="fi"><button class="fq" onclick="toggleFaq(this)"><span class="fb2" style="background:var(--co)">Q</span><span class="ft">モニターは完全無料ですか？</span><span class="fa"><svg style="width:16px;height:16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="fw"><div class="fwi"><span class="fb2" style="background:var(--sg)">A</span><p class="fwt">プラン利用料（入会金・月額費用）は無料ですが、シッティング料金（シッターの時給×利用時間）は通常どおり発生します。面談クーポン・夜間クーポン・定期クーポンなどのプラン限定特典を併用いただくことで、通常よりお得にご利用いただけます。</p></div></div></div>
 <div class="fi"><button class="fq" onclick="toggleFaq(this)"><span class="fb2" style="background:var(--co)">Q</span><span class="ft">どのくらいの時間預けてもいいの？</span><span class="fa"><svg style="width:16px;height:16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="fw"><div class="fwi"><span class="fb2" style="background:var(--sg)">A</span><p class="fwt">1回あたりの利用時間に制限はありません。短時間のご利用も大歓迎です。ただし、本プランは月間30時間以上のご利用を想定した長時間利用向けのプランです。1回ごとは短くても、月全体で30時間以上ご利用いただくことが参加条件となります。</p></div></div></div>
 <div class="fi"><button class="fq" onclick="toggleFaq(this)"><span class="fb2" style="background:var(--co)">Q</span><span class="ft">生後すぐでも利用できますか？<br>出産前でも応募できますか？</span><span class="fa"><svg style="width:16px;height:16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="fw"><div class="fwi"><span class="fb2" style="background:var(--sg)">A</span><p class="fwt">はい、生後0ヶ月からご利用いただけます。新生児対応の研修を受けたシッターがお伺いします。また、現在妊娠中でこれから出産予定の方もご応募いただけます。モニター期間中（2026年5〜7月）にご利用を開始できれば問題ありません。</p></div></div></div>
 <div class="fi"><button class="fq" onclick="toggleFaq(this)"><span class="fb2" style="background:var(--co)">Q</span><span class="ft">シッターが合わなかった場合は？</span><span class="fa"><svg style="width:16px;height:16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="fw"><div class="fwi"><span class="fb2" style="background:var(--sg)">A</span><p class="fwt">運営が間に入り、別のシッターをご紹介いたします。お子さまとの相性を大切にしていますので、遠慮なくお申し付けください。</p></div></div></div>
@@ -289,6 +334,8 @@ html{background:#FFF8F0;}body{font-weight:450;max-width:430px;margin:0 auto;box-
 </div>
 
 <script>
+
+function toggleBenefit(el){el.classList.toggle('open')}
 function toggleFaq(btn){var a=btn.nextElementSibling,r=btn.querySelector('.fa'),o=a.classList.contains('open');document.querySelectorAll('.fw.open').forEach(function(e){e.classList.remove('open')});document.querySelectorAll('.fa').forEach(function(e){e.style.transform='rotate(0deg)'});if(!o){a.classList.add('open');r.style.transform='rotate(180deg)';}}
 
 (function(){
