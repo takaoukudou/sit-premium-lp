@@ -309,6 +309,109 @@
   </div>
 </div>
 
+<!-- 補足: シッターが見つからなかった場合の返金対応について -->
+<div class="bd" id="refund-toggle" style="cursor:pointer;max-width:1200px;margin:24px auto 0;box-sizing:border-box">
+  <h3 style="display:flex;justify-content:space-between;align-items:center">補足：シッターが見つからなかった場合の返金対応について<span id="rf-arrow" style="font-size:1rem;color:var(--ink-m);transition:transform .3s">▼</span></h3>
+  <div id="rf-body" style="display:none">
+    <p style="font-size:.8rem;color:var(--ink-s);line-height:1.85;margin-bottom:14px">プラン加入後「シッターが見つからない」事態への返金対応の有無を検討。全面返金 vs 返金なしの二択ではなく、起因理由で切り分ける設計を推奨。</p>
+
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:18px 0 10px;color:var(--ink)">「見つからない」が発生するシナリオの分解</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:.78rem;line-height:1.6">
+        <thead><tr style="border-bottom:2px solid var(--line);text-align:left">
+          <th style="padding:8px 10px;font-weight:700">状況</th>
+          <th style="padding:8px 10px;font-weight:700">主因</th>
+          <th style="padding:8px 10px;font-weight:700;text-align:center">想定頻度</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">①エリアに該当シッター0人</td><td style="padding:8px 10px">運営側（供給不足）</td><td style="padding:8px 10px;text-align:center">低（選考で排除可）</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">②条件が厳しすぎて相性不一致</td><td style="padding:8px 10px">運営・保護者の中間</td><td style="padding:8px 10px;text-align:center">中</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">③一時的に空きスロットなし</td><td style="padding:8px 10px">時期・タイミング</td><td style="padding:8px 10px;text-align:center">中</td></tr>
+          <tr><td style="padding:8px 10px">④保護者が全候補を断り続ける</td><td style="padding:8px 10px">保護者側（好みの問題）</td><td style="padding:8px 10px;text-align:center">低〜中</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">返金あり vs なし の比較</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:.76rem;line-height:1.6">
+        <thead><tr style="border-bottom:2px solid var(--line);text-align:left">
+          <th style="padding:8px 10px;font-weight:700">観点</th>
+          <th style="padding:8px 10px;font-weight:700;color:var(--forest)">返金あり</th>
+          <th style="padding:8px 10px;font-weight:700;color:var(--ink-s)">返金なし</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">申込みのハードル（CVR）</td><td style="padding:8px 10px">◎ 低い（安心感あり）</td><td style="padding:8px 10px">△ 慎重層が離脱</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">収益の予測性</td><td style="padding:8px 10px">△ 返金率がブレる</td><td style="padding:8px 10px">◎ 固定収入</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">運営のサービス品質努力</td><td style="padding:8px 10px">◎ 返金回避のため努力</td><td style="padding:8px 10px">△ 努力なしでも収益確保</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">オペレーション負荷</td><td style="padding:8px 10px">△ 判定・処理ルール必要</td><td style="padding:8px 10px">◎ シンプル</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">悪用リスク</td><td style="padding:8px 10px">△ 「気に入らない」で返金要求</td><td style="padding:8px 10px">◎ なし</td></tr>
+          <tr><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">マーケティング訴求</td><td style="padding:8px 10px">「見つからなければ返金」</td><td style="padding:8px 10px">「選考通過＝供給保証」</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">業界の慣行</div>
+    <div style="padding:12px 14px;background:var(--bg-s);border-left:3px solid var(--ink-m);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85">
+      ケアファインダー等の類似月額サブスクでは「返金不可」と明記。シッター系サブスクで明示的な「見つからない場合の返金保証」を謳うサービスは現時点で確認できず、差別化の余地あり。
+    </div>
+
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">推奨：ハイブリッド型（条件付き返金）</div>
+    <p style="font-size:.8rem;color:var(--ink-s);line-height:1.85;margin-bottom:12px">「返金なし」と「全面返金」の二択ではなく、<b style="color:var(--forest)">起因理由で切り分ける</b>設計を推奨。</p>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:.78rem;line-height:1.6">
+        <thead><tr style="border-bottom:2px solid var(--line);text-align:left">
+          <th style="padding:8px 10px;font-weight:700">ケース</th>
+          <th style="padding:8px 10px;font-weight:700">対応</th>
+          <th style="padding:8px 10px;font-weight:700">根拠</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--line);background:rgba(40,73,56,.06)"><td style="padding:8px 10px;font-weight:700">①運営都合（該当シッター0人等）</td><td style="padding:8px 10px;color:var(--forest);font-weight:700">全額返金＋休会</td><td style="padding:8px 10px;font-size:.72rem">選考で通したのに供給を用意できないのは運営の落ち度</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">②時期・タイミング</td><td style="padding:8px 10px;font-weight:600">翌月自動休会・料金停止</td><td style="padding:8px 10px;font-size:.72rem">継続意思があれば次月から再開</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">③保護者の選定条件が極端</td><td style="padding:8px 10px">返金なし（ルールに明記）</td><td style="padding:8px 10px;font-size:.72rem">好みの問題まで補償すると悪用リスク</td></tr>
+          <tr><td style="padding:8px 10px">④保護者都合の一時停止（里帰り等）</td><td style="padding:8px 10px;font-weight:600">休会制度で対応</td><td style="padding:8px 10px;font-size:.72rem">料金発生を止める仕組み</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:14px;padding:12px 14px;background:rgba(40,73,56,.06);border-left:3px solid var(--forest);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85">
+      <b style="color:var(--forest)">この設計のメリット</b>：<br>
+      ・申込時の心理的ハードルを下げる「見つからなければ返金」という安心感<br>
+      ・選考時点で①のケースはほぼ排除できる（10都府県の実データあり）ため実発生率は低い<br>
+      ・「選考通過＝供給保証」という訴求が成立<br>
+      ・③を明示的に除外することで悪用を防止
+    </div>
+
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">想定返金率とシミュレーターへの影響</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:.78rem;line-height:1.6">
+        <thead><tr style="border-bottom:2px solid var(--line);text-align:left">
+          <th style="padding:8px 10px;font-weight:700">返金率想定</th>
+          <th style="padding:8px 10px;text-align:right;font-weight:700">1加入者/月の期待損失</th>
+          <th style="padding:8px 10px;text-align:right;font-weight:700">1年目コスト増</th>
+          <th style="padding:8px 10px;text-align:right;font-weight:700">巡航年コスト増</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">1%（楽観）</td><td style="padding:8px 10px;text-align:right">¥98</td><td style="padding:8px 10px;text-align:right">約¥8万</td><td style="padding:8px 10px;text-align:right">約¥17万</td></tr>
+          <tr style="border-bottom:1px solid var(--line);background:rgba(196,102,63,.06)"><td style="padding:8px 10px;font-weight:700">3%（想定）</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥294</td><td style="padding:8px 10px;text-align:right;font-weight:700">約¥25万</td><td style="padding:8px 10px;text-align:right;font-weight:700">約¥50万</td></tr>
+          <tr><td style="padding:8px 10px">5%（悲観）</td><td style="padding:8px 10px;text-align:right">¥490</td><td style="padding:8px 10px;text-align:right">約¥42万</td><td style="padding:8px 10px;text-align:right">約¥84万</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:14px;padding:12px 14px;background:rgba(40,73,56,.06);border-left:3px solid var(--forest);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85">
+      <b style="color:var(--forest)">結論</b>：粗利への影響は軽微。想定3%でも年間¥50万程度のコスト増で、これに対してCVRが1〜2ポイント改善すれば十分に回収可能。ハイブリッド型の返金設計で「安心感」と「収益予測性」のバランスを取るのが現実的。
+    </div>
+
+    <div style="margin-top:10px;padding:12px 14px;background:rgba(176,74,60,.06);border-left:3px solid var(--neg);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85">
+      <b style="color:var(--neg)">検討ポイント</b>：<br>
+      ・返金基準の文言（どこからが「運営都合」か）を明確化する必要あり<br>
+      ・判定フロー（コンシェルジュが○件提案して保護者が全て断った場合のルール）を事前設計<br>
+      ・休会制度の具体的な条件（期間上限、手数料など）も同時検討
+    </div>
+  </div>
+</div>
+
 <!-- Pricing analysis report -->
 
 </div>
@@ -603,6 +706,7 @@ renderAreas();
 document.getElementById('bd-toggle').addEventListener('click',function(){const body=document.getElementById('bd-body');const arrow=document.getElementById('bd-arrow');if(body.style.display==='none'){body.style.display='block';arrow.style.transform='rotate(180deg)'}else{body.style.display='none';arrow.style.transform='rotate(0deg)'}});
 document.getElementById('calc-detail-toggle').addEventListener('click',function(){const body=document.getElementById('cd-body');const arrow=document.getElementById('cd-arrow');if(body.style.display==='none'){body.style.display='block';arrow.style.transform='rotate(180deg)'}else{body.style.display='none';arrow.style.transform='rotate(0deg)'}});
 document.getElementById('disc-scenario-toggle').addEventListener('click',function(){const body=document.getElementById('ds-body');const arrow=document.getElementById('ds-arrow');if(body.style.display==='none'){body.style.display='block';arrow.style.transform='rotate(180deg)'}else{body.style.display='none';arrow.style.transform='rotate(0deg)'}});
+document.getElementById('refund-toggle').addEventListener('click',function(){const body=document.getElementById('rf-body');const arrow=document.getElementById('rf-arrow');if(body.style.display==='none'){body.style.display='block';arrow.style.transform='rotate(180deg)'}else{body.style.display='none';arrow.style.transform='rotate(0deg)'}});
 // Matrix toggle
 document.getElementById('matrix-toggle').addEventListener('click',function(){const body=document.getElementById('matrix-body');const arrow=document.getElementById('matrix-arrow');if(body.style.display==='none'){body.style.display='block';arrow.style.transform='rotate(180deg)'}else{body.style.display='none';arrow.style.transform='rotate(0deg)'}});
 // Load PC LP (lp.html) into iframe
