@@ -70,7 +70,7 @@
     <!-- 1. 年純利益 -->
     <div class="rc rc--big" id="rc-main">
       <div class="rc-label">1年目 純利益 <span style="font-size:.56rem;color:rgba(250,246,236,.55);margin-left:6px;letter-spacing:.08em;text-transform:none">（2026年5月〜2027年3月 / 11ヶ月）</span></div>
-      <div class="rc-main-desc">プラン料金＋マッチング手数料の<b>売上</b>から、クーポン割引・カメラ貸与・累計特典クーポンなどの<b>変動コスト</b>を差し引いた金額。</div>
+      <div class="rc-main-desc">プラン料金＋マッチング手数料の<b>売上</b>から、クーポン割引・カメラ贈呈・累計特典クーポンなどの<b>変動コスト</b>を差し引いた金額。</div>
       <div class="rc-val" id="o-annual"></div>
       <div style="font-size:.7rem;color:var(--terra-s);margin-top:6px;letter-spacing:.04em" id="o-y1-sub">0名スタート → 月13名ずつ加入 → 11ヶ月間（2026年5月〜2027年3月）の累計</div>
 
@@ -88,7 +88,7 @@
             <div class="rc-formula-lbl">変動コスト</div>
             <div class="rc-formula-val" id="o-cost-total"></div>
             <div class="rc-formula-sub"><span>クーポン割引</span><span id="o-cost-disc"></span></div>
-            <div class="rc-formula-sub"><span>カメラ貸与・累計特典</span><span id="o-cost-other"></span></div>
+            <div class="rc-formula-sub"><span>カメラ贈呈・累計特典</span><span id="o-cost-other"></span></div>
           </div>
         </div>
       </div>
@@ -125,11 +125,15 @@
           <div class="cd-row cd-sub"><span class="cd-l" id="cd-disc-formula">—</span><span class="cd-v"></span></div>
           <div class="cd-row"><span class="cd-l">初回クーポン償却</span><span class="cd-v" id="cd-welcome">—</span></div>
           <div class="cd-row cd-sub" style="font-size:.66rem"><span class="cd-l">¥6,600 ÷ 12ヶ月</span><span class="cd-v"></span></div>
-          <div class="cd-row"><span class="cd-l">見守りカメラ貸与</span><span class="cd-v" id="cd-camera">—</span></div>
-          <div class="cd-row cd-sub" style="font-size:.66rem"><span class="cd-l">¥456 ÷ 12ヶ月</span><span class="cd-v"></span></div>
           <div class="cd-row"><span class="cd-l">累計特典</span><span class="cd-v" id="cd-cumul">—</span></div>
           <div class="cd-row cd-sub" style="font-size:.66rem"><span class="cd-l" id="cd-cumul-formula">—</span><span class="cd-v"></span></div>
           <div class="cd-row cd-total cd-neg"><span class="cd-l">変動コスト 計</span><span class="cd-v" id="cd-cost-total">—</span></div>
+        </div>
+
+        <div class="cd-block" style="background:rgba(196,102,63,.05);border-left:3px solid var(--terra);padding:12px 14px;border-radius:0 3px 3px 0">
+          <div class="cd-block-lbl" style="color:var(--terra)">▼ 1年目固定コスト（月次按分なし・1回限り）</div>
+          <div class="cd-row"><span class="cd-l">見守りカメラ贈呈（初回ローンチ限定）</span><span class="cd-v" id="cd-camera-fixed">−¥160,000</span></div>
+          <div class="cd-row cd-sub" style="font-size:.66rem"><span class="cd-l">¥8,000/台 × 最大20名 = ¥160,000（1年目のみ発生、巡航期には含まない）</span><span class="cd-v"></span></div>
         </div>
 
         <div class="cd-final">
@@ -216,7 +220,7 @@
 <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">割引 / 手数料</td><td style="padding:8px 10px;font-weight:700;color:var(--forest)" id="bm-disc">10%OFF 上限¥10,000<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">繰り越し可能</span></td><td style="padding:8px 10px">なし</td><td style="padding:8px 10px">なし</td><td style="padding:8px 10px">定期予約 手数料11%<br>単発予約 手数料22%<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">いずれも税込</span></td></tr>
 <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">専任担当</td><td style="padding:8px 10px;font-weight:700;color:var(--forest)">専任コンシェルジュ</td><td style="padding:8px 10px">助産師チーム</td><td style="padding:8px 10px">専属コンシェルジュ</td><td style="padding:8px 10px">なし<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">保護者が直接選択</span></td></tr>
 <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">シッター資格</td><td style="padding:8px 10px">有資格者100%</td><td style="padding:8px 10px">助産師100%</td><td style="padding:8px 10px">有資格者＋研修済み</td><td style="padding:8px 10px">登録者ごと<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">無資格者も在籍</span></td></tr>
-<tr><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">特徴</td><td style="padding:8px 10px;font-size:.72rem">初回¥6,600還元・累計特典最大¥60k・おでかけ同伴・見守りカメラ貸与・10都府県選考制</td><td style="padding:8px 10px;font-size:.72rem">低月齢特化・LINE相談24h・月額制で気軽</td><td style="padding:8px 10px;font-size:.72rem">英国式教育・スーパーナニー・家事含むフルサービス</td><td style="padding:8px 10px;font-size:.72rem">登録者数最大級・安価な単価・保護者主導のマッチング・ただし選定負荷が高い</td></tr>
+<tr><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">特徴</td><td style="padding:8px 10px;font-size:.72rem">初回¥6,600還元・累計特典最大¥30k・おでかけ同伴・見守りカメラ贈呈（初回ローンチ限定）・10都府県選考制</td><td style="padding:8px 10px;font-size:.72rem">低月齢特化・LINE相談24h・月額制で気軽</td><td style="padding:8px 10px;font-size:.72rem">英国式教育・スーパーナニー・家事含むフルサービス</td><td style="padding:8px 10px;font-size:.72rem">登録者数最大級・安価な単価・保護者主導のマッチング・ただし選定負荷が高い</td></tr>
 </tbody>
 </table>
 </div>
@@ -265,7 +269,7 @@
 <li>決済手数料: 税込プラン料金 × 4%（¥9,800時 ¥392、動的計算）</li>
 <li>割引コストは利用額の分布で加重平均（ヘビー50%: ¥120k / ミドル30%: ¥75k / ライト20%: ¥30k）し、上限でキャップ</li>
 <li>初回クーポン償却: ¥550/人/月（¥6,600 ÷ 12ヶ月）</li>
-<li>見守りカメラ貸与: ¥38/人/月（¥456 ÷ 12ヶ月）</li>
+<li>見守りカメラ贈呈: 初回ローンチ限定・最大20名（¥8,000/台 × 20名 = ¥160,000）※1年目のみの固定コスト、1加入者月次コストには含まず、1年目純利益から一括控除</li>
 <li>累計特典の月次コスト: 総額 ÷ 12ヶ月（¥30k → ¥2,500/月、¥60k → ¥5,000/月）</li>
 <li>キャンセル料補填は本プランでは提供しないため計算に含まず</li>
 <li>固定コスト（供給投資・専任コンシェルジュ人件費）は本シミュレーターに含まず</li>
@@ -483,9 +487,11 @@ const MATCH=22946,PAY_FEE_RATE=0.04,TAX_RATE=0.10,BASE_GPU=15186,TGT=30000000;
 // 特典コストの月次按分（年間12ヶ月で除算）
 const MONTHS_PER_YEAR=12;
 const WELCOME_TOTAL=6600;          // 初回クーポン総額
-const CAMERA_TOTAL=456;            // 見守りカメラ貸与コスト総額（年間）
+const CAMERA_UNIT=8000;             // 見守りカメラ単価（中価格帯想定）
+const CAMERA_MAX=20;                // 贈呈対象の最大人数（初回ローンチ限定）
+const CAMERA_TOTAL_Y1=CAMERA_UNIT*CAMERA_MAX;  // 1年目固定コスト = ¥160,000
+const CAMERA=0;                     // 1加入者あたり月次コストからは除外（固定費として別計上）
 const WELCOME=Math.round(WELCOME_TOTAL/MONTHS_PER_YEAR);  // ≒ ¥550
-const CAMERA=Math.round(CAMERA_TOTAL/MONTHS_PER_YEAR);    // ≒ ¥38
 function otherCost(cumulTotal){
   // 累計特典も年間で按分
   const cumulMonthly=Math.round(cumulTotal/MONTHS_PER_YEAR);
@@ -523,6 +529,8 @@ function calc(){
   // 1年目 ramp-up — 5月〜3月の11ヶ月累計、供給投資除外
   let y1=0;
   for(let m=1;m<=MONTHS_Y1;m++){y1+=(gpu*pace*m);}
+  // カメラ贈呈は初回ローンチ限定（最大20名分）の1年目固定コストとして差し引く
+  y1 -= CAMERA_TOTAL_Y1;
   const be=gpu>0?1:Infinity; // 供給投資を除外すれば粗利>0で即黒字
   const target=gpu>0?Math.ceil(TGT/12/gpu):Infinity;
   // Supply: bottleneck-based capacity
@@ -574,7 +582,6 @@ function render(){
   document.getElementById('cd-disc').textContent='−'+fmt(r.disc);
   document.getElementById('cd-disc-formula').textContent='利用額分布×'+S.rate+'% ・ 上限¥'+S.cap.toLocaleString()+'（加重平均）';
   document.getElementById('cd-welcome').textContent='−'+fmt(WELCOME);
-  document.getElementById('cd-camera').textContent='−'+fmt(CAMERA);
   document.getElementById('cd-cumul').textContent='−'+fmt(cumulMonthly);
   document.getElementById('cd-cumul-formula').textContent='¥'+S.cumul.toLocaleString()+' ÷ 12ヶ月';
   document.getElementById('cd-cost-total').textContent='−'+fmt(r.costPU);
@@ -991,7 +998,9 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
 .d-tl-note b{color:var(--terra);font-weight:700}
 
 /* Grand Total */
-.d-tl-total{margin-top:40px;padding:36px 44px;background:var(--forest);color:var(--bg);border-radius:6px;display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden;max-width:900px;margin-left:auto;margin-right:auto}
+.d-tl-total{margin-top:40px;padding:36px 44px;background:var(--forest);color:var(--bg);border-radius:6px;display:flex;justify-content:space-between;align-items:center;gap:32px;position:relative;overflow:hidden;max-width:900px;margin-left:auto;margin-right:auto}
+.d-tl-total__text-wrap{flex:1;min-width:0}
+.d-tl-total__cta{flex-shrink:0;white-space:nowrap}
 .d-tl-total::before{content:"";position:absolute;top:-40px;right:-40px;width:140px;height:140px;border:1px solid rgba(250,246,236,.15);border-radius:50%}
 .d-tl-total__lbl{font-size:.62rem;letter-spacing:.26em;color:var(--terra-s);text-transform:uppercase;margin-bottom:6px;font-weight:600}
 .d-tl-total__val{font-family:var(--fs);font-weight:700;font-size:1.9rem;line-height:1.2}
@@ -1046,7 +1055,8 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
 .d-price-card__eb{font-size:.62rem;letter-spacing:.22em;color:var(--terra);text-transform:uppercase;margin-bottom:10px;font-weight:600}
 .d-price-card__name{font-family:var(--fs);font-size:1.15rem;font-weight:600;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .d-price-card__feats{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
-.d-price-card__feats li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:.82rem;color:var(--ink-s);line-height:1.75}
+.d-price-card__feats li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;font-size:.82rem;color:var(--ink-s);line-height:1.75;word-break:normal;overflow-wrap:break-word}
+.d-price-card__feats li > *{min-width:0}
 .d-price-card__feats li::before{content:"✓";color:var(--forest);font-weight:700;font-size:.92rem}
 .d-price-disclaimer{margin-top:28px;padding:24px 26px;background:rgba(250,246,236,.06);border:1px solid rgba(232,201,181,.3);border-left:3px solid var(--terra);border-radius:4px;max-width:880px;margin-left:auto;margin-right:auto}
 .d-price-disclaimer__lbl{display:inline-block;padding:4px 11px;background:var(--terra);color:var(--bg);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;border-radius:2px;margin-bottom:12px}
@@ -1276,15 +1286,14 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
                   <span class="d-tl-when">加入直後特典</span>
                 </div>
                 <div class="d-tl-amount">
-                  <span class="d-tl-amount__unit" style="font-size:.8rem;color:var(--ink-s);margin-right:6px">最大</span>
                   <span class="d-tl-amount__val">¥6,600</span>
                   <span class="d-tl-amount__unit">相当</span>
                   <span class="d-tl-amount__off">OFF</span>
                 </div>
               </div>
               <h3 class="d-tl-title"><em>初回無料クーポン</em>で、はじめの一歩を後押し。</h3>
-              <p class="d-tl-lead">加入直後に受け取れるシッター初回無料クーポン2枚。気になるシッターを2人まで気軽に試せます。</p>
-              <div class="d-tl-note">クーポン1枚につきシッティング料金¥3,300（当社平均時給）を上限に充当。シッターにより時給は異なり、¥3,300未満の場合は差額分は還元対象外。2枚で最大¥6,600相当。 ・ 加入後30日有効。</div>
+              <p class="d-tl-lead">加入直後に受け取れる<b style="color:var(--terra)">1回分のシッティングが完全無料になるクーポン2枚</b>。気になるシッターを2人まで気軽に試せます。</p>
+              <div class="d-tl-note">クーポン1枚で1回分のシッティング料金が無料に（時間・時給の上限なし、交通費等の実費は別途）。時給¥3,300・1時間利用想定で¥6,600相当のお得 ・ 加入後30日有効。</div>
             </div>
 
             <!-- STEP 02 -->
@@ -1357,12 +1366,12 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
           </div>
 
           <div class="d-tl-total">
-            <div>
+            <div class="d-tl-total__text-wrap">
               <div class="d-tl-total__lbl">Grand Total</div>
-              <div class="d-tl-total__val">年間最大 <em>¥156,600相当</em> の還元</div>
-              <div class="d-tl-total__sub">加入直後 ¥6,600 ＋ 月次最大 ¥120,000 ＋ 累計最大 ¥30,000。<br>※月次特典は月上限¥10,000まで、累計特典は300時間（月平均25時間×12ヶ月）利用時の最大値。ご利用状況により還元額は変動します。</div>
+              <div class="d-tl-total__val">年間 <em>¥156,600相当</em> の還元</div>
+              <div class="d-tl-total__sub">初回クーポン ¥6,600 ＋ 月次最大 ¥120,000 ＋ 累計最大 ¥30,000。<br>※月次・累計特典を上限まで使い切った場合の最大値。ご利用状況により還元額は変動します。</div>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfTBHFbqWCoWncqLt-wKE02mDBNJ6YMJcvZyoVVHVEAuLmlfw/viewform?usp=header" target="_blank" rel="noopener" style="padding:14px 28px;background:var(--bg);color:var(--forest);border-radius:999px;text-decoration:none;font-weight:600;font-size:.86rem;position:relative">応募する →</a>
+            <a class="d-tl-total__cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfTBHFbqWCoWncqLt-wKE02mDBNJ6YMJcvZyoVVHVEAuLmlfw/viewform?usp=header" target="_blank" rel="noopener" style="padding:14px 28px;background:var(--bg);color:var(--forest);border-radius:999px;text-decoration:none;font-weight:600;font-size:.86rem;position:relative">応募する →</a>
           </div>
         </div>
       </section>
@@ -1447,8 +1456,8 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
             <div class="d-price-layer d-price-layer--2">
               <div class="d-price-layer__num">②</div>
               <div class="d-price-layer__lbl">シッティング料金（従量）</div>
-              <div class="d-price-layer__amt sm">時給 × 利用時間</div>
-              <div class="d-price-layer__desc">従来どおりの都度課金。プラン加入で月次割引・累計クーポンが適用可能。</div>
+              <div class="d-price-layer__amt sm">ご利用の都度、所定料金</div>
+              <div class="d-price-layer__desc">従来どおりの都度課金（シッティング料金・諸費用）。プラン加入で月次割引・累計クーポンが適用可能。</div>
             </div>
           </div>
 
@@ -1456,12 +1465,12 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
             <div class="d-price-card__eb">What's Included</div>
             <h3 class="d-price-card__name">プラン料金 ¥9,800/月（税込）に含まれるもの</h3>
             <ul class="d-price-card__feats">
-              <li>加入直後 ¥6,600相当 の還元（初回無料クーポン2枚）</li>
+              <li>加入直後特典：1回のシッティングが完全無料になるクーポン2枚</li>
               <li>月次特典：定期利用割引10%OFF（上限¥10,000・繰り越し可能）</li>
               <li>累計特典：100h / 200h / 300h達成で各¥10,000、最大¥30,000相当</li>
               <li>専任コンシェルジュによるシッター紹介・引き継ぎ・定期ヒアリング</li>
               <li>チーム体制で1人に依存しない運用・引き継ぎサポート</li>
-              <li>見守りカメラ無償貸与（希望者）</li>
+              <li><span><b style="color:var(--terra)">【初回ローンチ限定】</b>見守りカメラを無償プレゼント（希望者のみ・返却不要）</span></li>
             </ul>
           </div>
 
