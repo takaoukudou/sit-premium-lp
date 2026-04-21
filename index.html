@@ -115,7 +115,7 @@
           <div class="cd-row cd-sub"><span class="cd-l">└ 決済手数料（税込額の約4%）</span><span class="cd-v" id="cd-payfee">—</span></div>
           <div class="cd-row cd-hl"><span class="cd-l">プラン料金 売上計上額</span><span class="cd-v" id="cd-plan-net">—</span></div>
           <div class="cd-row"><span class="cd-l">マッチング手数料</span><span class="cd-v" id="cd-match">—</span></div>
-          <div class="cd-row cd-sub" style="font-size:.66rem"><span class="cd-l">30h × ¥3,300 × 利用者手数料率28.3%</span><span class="cd-v">¥28,000</span></div>
+          <div class="cd-row cd-sub" style="font-size:.66rem"><span class="cd-l">30h × 加重平均シッター時給(0歳加算込み) × 28%</span><span class="cd-v">¥22,946</span></div>
           <div class="cd-row cd-total cd-pos"><span class="cd-l">売上 計</span><span class="cd-v" id="cd-rev-total">—</span></div>
         </div>
 
@@ -261,7 +261,7 @@
 
 <div class="notes"><h3>計算の前提</h3><ul>
 <li><strong>プラン料金は税込表示</strong>：¥9,800＝税抜¥8,909＋消費税¥891。売上計上は税抜額</li>
-<li>マッチング手数料: ¥28,000/人/月（30h × ¥3,300 × 利用者手数料率28.3%）</li>
+<li>マッチング手数料: ¥22,946/人/月（30h × シッター時給 × 28%）※シッター時給 = エリア別基準時給 + 0歳割増¥358。10都府県のシッター数加重平均で算出</li>
 <li>決済手数料: 税込プラン料金 × 4%（¥9,800時 ¥392、動的計算）</li>
 <li>割引コストは利用額の分布で加重平均（ヘビー50%: ¥120k / ミドル30%: ¥75k / ライト20%: ¥30k）し、上限でキャップ</li>
 <li>初回クーポン償却: ¥550/人/月（¥6,600 ÷ 12ヶ月）</li>
@@ -287,16 +287,16 @@
           <th style="padding:8px 10px;text-align:right;font-weight:700">巡航年純利益</th>
         </tr></thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--line);background:rgba(40,73,56,.06)"><td style="padding:8px 10px;font-weight:700;color:var(--forest)">0%（割引なし）</td><td style="padding:8px 10px;text-align:right">¥0</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700">¥33,429</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700;color:var(--forest)">¥2,868万</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700;color:var(--forest)">¥5,736万</td></tr>
-          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">3%</td><td style="padding:8px 10px;text-align:right">¥2,655</td><td style="padding:8px 10px;text-align:right">¥30,774</td><td style="padding:8px 10px;text-align:right">¥2,640万</td><td style="padding:8px 10px;text-align:right">¥5,281万</td></tr>
-          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">5%</td><td style="padding:8px 10px;text-align:right">¥4,425</td><td style="padding:8px 10px;text-align:right">¥29,004</td><td style="padding:8px 10px;text-align:right">¥2,489万</td><td style="padding:8px 10px;text-align:right">¥4,977万</td></tr>
-          <tr style="background:rgba(196,102,63,.06)"><td style="padding:8px 10px;font-weight:700;color:var(--terra)">10%（現案）</td><td style="padding:8px 10px;text-align:right">¥7,850</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥25,579</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥2,195万</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥4,389万</td></tr>
+          <tr style="border-bottom:1px solid var(--line);background:rgba(40,73,56,.06)"><td style="padding:8px 10px;font-weight:700;color:var(--forest)">0%（割引なし）</td><td style="padding:8px 10px;text-align:right">¥0</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700">¥28,375</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700;color:var(--forest)">¥2,435万</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700;color:var(--forest)">¥4,869万</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">3%</td><td style="padding:8px 10px;text-align:right">¥2,655</td><td style="padding:8px 10px;text-align:right">¥25,720</td><td style="padding:8px 10px;text-align:right">¥2,207万</td><td style="padding:8px 10px;text-align:right">¥4,414万</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">5%</td><td style="padding:8px 10px;text-align:right">¥4,425</td><td style="padding:8px 10px;text-align:right">¥23,950</td><td style="padding:8px 10px;text-align:right">¥2,055万</td><td style="padding:8px 10px;text-align:right">¥4,110万</td></tr>
+          <tr style="background:rgba(196,102,63,.06)"><td style="padding:8px 10px;font-weight:700;color:var(--terra)">10%（現案）</td><td style="padding:8px 10px;text-align:right">¥7,850</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥20,525</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥1,761万</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥3,522万</td></tr>
         </tbody>
       </table>
     </div>
 
     <div style="margin-top:14px;padding:12px 14px;background:rgba(40,73,56,.06);border-left:3px solid var(--forest);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85">
-      <b style="color:var(--forest)">割引なしにすると</b>：1年目 +¥674万、巡航年 +¥1,347万の収益改善。1加入者粗利は¥7,850/月増（現案¥25,579 → ¥33,429）。
+      <b style="color:var(--forest)">割引なしにすると</b>：1年目 +¥674万、巡航年 +¥1,347万の収益改善。1加入者粗利は¥7,850/月増（現案¥20,525 → ¥28,375）。
     </div>
 
     <div style="margin-top:10px;padding:12px 14px;background:rgba(176,74,60,.06);border-left:3px solid var(--neg);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85">
@@ -412,6 +412,63 @@
   </div>
 </div>
 
+<!-- 補足: 景表法観点の検討事項 -->
+<div class="bd" id="legal-toggle" style="cursor:pointer;max-width:1200px;margin:24px auto 0;box-sizing:border-box">
+  <h3 style="display:flex;justify-content:space-between;align-items:center">補足：景表法観点の確認事項・社内準備資料<span id="lg-arrow" style="font-size:1rem;color:var(--ink-m);transition:transform .3s">▼</span></h3>
+  <div id="lg-body" style="display:none">
+    <p style="font-size:.8rem;color:var(--ink-s);line-height:1.85;margin-bottom:14px">LPの金額訴求（「¥6,600 OFF」「年間最大¥156,600相当」等）について、景品表示法・優良誤認防止観点で確認すべき事項。</p>
+
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:18px 0 10px;color:var(--ink)">① 「加入直後 ¥6,600 相当」と「初回無料クーポン2枚」の根拠</div>
+    <div style="padding:14px 16px;background:var(--bg-s);border-left:3px solid var(--terra);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85;margin-bottom:10px">
+      <b style="color:var(--terra)">論点</b>：「平均¥3,300/回」という訴求の合理的根拠資料を社内保管する必要がある（景表法上、数値訴求の根拠は事業者側が立証責任を負う）。<br><br>
+      <b style="color:var(--ink)">必要な根拠資料</b><br>
+      ・調査対象：KIDSNAシッターに登録中の有資格者シッターの時給データ<br>
+      ・集計期間：直近N年 or 直近N件の予約実績（期間を明示）<br>
+      ・対象エリア：プラン対応10都府県のみ<br>
+      ・算出方法：単純平均 / 中央値 / 加重平均のいずれか（明示）<br>
+      ・サンプルサイズ：○名 × ○件<br><br>
+      <b style="color:var(--ink)">LP上の表記対応</b>（既に反映済）<br>
+      ・「¥6,600 OFF」→「<b>最大</b> ¥6,600 相当 OFF」に変更<br>
+      ・注記：「クーポン1枚につきシッティング料金¥3,300（当社平均時給）を上限に充当。シッターにより時給は異なり、¥3,300未満の場合は差額分は還元対象外」
+    </div>
+
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">② 「年間最大¥156,600相当の還元」の打消し表示</div>
+    <div style="padding:14px 16px;background:var(--bg-s);border-left:3px solid var(--terra);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85;margin-bottom:10px">
+      <b style="color:var(--terra)">論点</b>：「すべて特典を使い切った場合の最大値」の打消し表記はあるが、主訴求（¥156,600 の大きい赤字）との視認性差が大きかった。景表法ガイドラインの打消し表示基準に沿って修正。<br><br>
+      <b style="color:var(--ink)">景表法ガイドライン（打消し表示の基準）</b><br>
+      ・<b>文字サイズ</b>：主訴求と比較して極端に小さくない<br>
+      ・<b>視認距離・時間</b>：主訴求を見るのと同じ条件で読める<br>
+      ・<b>近接性</b>：主訴求の近くに配置され、関連性が認識できる<br>
+      ・<b>明瞭性</b>：誤認を解消するに足る具体性がある<br><br>
+      <b style="color:var(--ink)">LP上の対応</b>（既に反映済）<br>
+      ・打消し表記の文字サイズを.76rem → .86remに拡大<br>
+      ・色のコントラストを rgba(250,246,236,.72) → .88 に向上<br>
+      ・文言を具体化：「月上限¥10,000まで、累計特典は300時間（月平均25時間×12ヶ月）利用時の最大値。ご利用状況により還元額は変動します」
+    </div>
+
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">③ 300時間利用の統計的妥当性</div>
+    <div style="padding:14px 16px;background:var(--bg-s);border-left:3px solid var(--terra);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85;margin-bottom:10px">
+      <b style="color:var(--terra)">論点</b>：累計特典の上限¥30,000（300時間達成）到達には、月平均25時間×12ヶ月 = <b>年間シッティング料金 約100万円</b>が前提。ここまで使う世帯の統計的割合に関する社内根拠を用意する必要がある。<br><br>
+      <b style="color:var(--ink)">必要な根拠データ</b><br>
+      ・プラン対象想定層（0歳児・月30h以上利用想定家庭）の年間シッティング時間分布<br>
+      ・過去の既存ユーザーで類似利用パターンの家庭が何%存在したか<br>
+      ・「300時間到達」を実現する家庭の割合（統計的に一般的でないなら「一部の家庭が受けられる最大値」と追記検討）<br><br>
+      <b style="color:var(--ink)">対応方針の選択肢</b><br>
+      ・A：実データで300時間到達家庭が○%と示せる場合、そのまま「年間最大¥156,600相当」訴求を維持<br>
+      ・B：到達家庭が少数の場合、「ヘビーユーザーの場合最大¥156,600相当」のような条件付き表記に変更
+    </div>
+
+    <div style="margin-top:14px;padding:12px 14px;background:rgba(40,73,56,.06);border-left:3px solid var(--forest);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85">
+      <b style="color:var(--forest)">社内準備チェックリスト</b><br>
+      ☐ 平均時給¥3,300の算出根拠資料（対象・期間・エリア・算出方法を明記）<br>
+      ☐ 300時間利用世帯の統計データ（既存ユーザー分析・または業界データの参照）<br>
+      ☐ クーポン対象外ケースの整理（シッター時給が¥3,300未満の場合の差額扱い等）<br>
+      ☐ LPと利用規約の整合性（すべての打消し条件が規約に反映されているか）<br>
+      ☐ 法務レビューの実施（ローンチ前に景表法・特商法観点で最終確認）
+    </div>
+  </div>
+</div>
+
 <!-- Pricing analysis report -->
 
 </div>
@@ -422,7 +479,7 @@
 </section>
 <script>
 document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('tab--on'));t.classList.add('tab--on');document.querySelectorAll('.pane').forEach(x=>x.classList.remove('pane--on'));document.getElementById('pane-'+t.dataset.s).classList.add('pane--on');window.scrollTo({top:0,behavior:'smooth'});if(t.dataset.s==='lp'){loadFullLP()}})});
-const MATCH=28000,PAY_FEE_RATE=0.04,TAX_RATE=0.10,BASE_GPU=15186,TGT=30000000;
+const MATCH=22946,PAY_FEE_RATE=0.04,TAX_RATE=0.10,BASE_GPU=15186,TGT=30000000;
 // 特典コストの月次按分（年間12ヶ月で除算）
 const MONTHS_PER_YEAR=12;
 const WELCOME_TOTAL=6600;          // 初回クーポン総額
@@ -707,6 +764,7 @@ document.getElementById('bd-toggle').addEventListener('click',function(){const b
 document.getElementById('calc-detail-toggle').addEventListener('click',function(){const body=document.getElementById('cd-body');const arrow=document.getElementById('cd-arrow');if(body.style.display==='none'){body.style.display='block';arrow.style.transform='rotate(180deg)'}else{body.style.display='none';arrow.style.transform='rotate(0deg)'}});
 document.getElementById('disc-scenario-toggle').addEventListener('click',function(){const body=document.getElementById('ds-body');const arrow=document.getElementById('ds-arrow');if(body.style.display==='none'){body.style.display='block';arrow.style.transform='rotate(180deg)'}else{body.style.display='none';arrow.style.transform='rotate(0deg)'}});
 document.getElementById('refund-toggle').addEventListener('click',function(){const body=document.getElementById('rf-body');const arrow=document.getElementById('rf-arrow');if(body.style.display==='none'){body.style.display='block';arrow.style.transform='rotate(180deg)'}else{body.style.display='none';arrow.style.transform='rotate(0deg)'}});
+document.getElementById('legal-toggle').addEventListener('click',function(){const body=document.getElementById('lg-body');const arrow=document.getElementById('lg-arrow');if(body.style.display==='none'){body.style.display='block';arrow.style.transform='rotate(180deg)'}else{body.style.display='none';arrow.style.transform='rotate(0deg)'}});
 // Matrix toggle
 document.getElementById('matrix-toggle').addEventListener('click',function(){const body=document.getElementById('matrix-body');const arrow=document.getElementById('matrix-arrow');if(body.style.display==='none'){body.style.display='block';arrow.style.transform='rotate(180deg)'}else{body.style.display='none';arrow.style.transform='rotate(0deg)'}});
 // Load PC LP (lp.html) into iframe
@@ -938,7 +996,7 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
 .d-tl-total__lbl{font-size:.62rem;letter-spacing:.26em;color:var(--terra-s);text-transform:uppercase;margin-bottom:6px;font-weight:600}
 .d-tl-total__val{font-family:var(--fs);font-weight:700;font-size:1.9rem;line-height:1.2}
 .d-tl-total__val em{font-style:normal;color:var(--terra-s)}
-.d-tl-total__sub{font-size:.76rem;color:rgba(250,246,236,.72);margin-top:6px}
+.d-tl-total__sub{font-size:.86rem;color:rgba(250,246,236,.88);margin-top:10px;line-height:1.7}
 
 /* Scenes desktop */
 .d-scenes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -1218,6 +1276,7 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
                   <span class="d-tl-when">加入直後特典</span>
                 </div>
                 <div class="d-tl-amount">
+                  <span class="d-tl-amount__unit" style="font-size:.8rem;color:var(--ink-s);margin-right:6px">最大</span>
                   <span class="d-tl-amount__val">¥6,600</span>
                   <span class="d-tl-amount__unit">相当</span>
                   <span class="d-tl-amount__off">OFF</span>
@@ -1225,7 +1284,7 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
               </div>
               <h3 class="d-tl-title"><em>初回無料クーポン</em>で、はじめの一歩を後押し。</h3>
               <p class="d-tl-lead">加入直後に受け取れるシッター初回無料クーポン2枚。気になるシッターを2人まで気軽に試せます。</p>
-              <div class="d-tl-note">平均¥3,300/回×2枚 ・ 加入後30日有効。</div>
+              <div class="d-tl-note">クーポン1枚につきシッティング料金¥3,300（当社平均時給）を上限に充当。シッターにより時給は異なり、¥3,300未満の場合は差額分は還元対象外。2枚で最大¥6,600相当。 ・ 加入後30日有効。</div>
             </div>
 
             <!-- STEP 02 -->
@@ -1248,7 +1307,7 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
                 </div>
               </div>
               <h3 class="d-tl-title"><em>繰り越し可能な定期利用割引</em>で、継続利用を後押し。</h3>
-              <p class="d-tl-lead">シッティング料金から10%OFF。使い切れなかった月の割引は翌月以降にそのまま繰り越せます。月30時間のご利用で割引だけで月額の元が取れる設計です。</p>
+              <p class="d-tl-lead">シッティング料金から10%OFF。使い切れなかった月の割引は翌月以降にそのまま繰り越せます。よくご利用いただく方ほどお得になる設計です。</p>
               <div class="d-tl-note">上限¥10,000/月 ・ 繰り越しOK ・ 解約時には失効。</div>
             </div>
 
@@ -1301,7 +1360,7 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
             <div>
               <div class="d-tl-total__lbl">Grand Total</div>
               <div class="d-tl-total__val">年間最大 <em>¥156,600相当</em> の還元</div>
-              <div class="d-tl-total__sub">加入直後 ¥6,600 ＋ 月次最大 ¥120,000 ＋ 累計最大 ¥30,000（すべて特典を使い切った場合の最大値）</div>
+              <div class="d-tl-total__sub">加入直後 ¥6,600 ＋ 月次最大 ¥120,000 ＋ 累計最大 ¥30,000。<br>※月次特典は月上限¥10,000まで、累計特典は300時間（月平均25時間×12ヶ月）利用時の最大値。ご利用状況により還元額は変動します。</div>
             </div>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfTBHFbqWCoWncqLt-wKE02mDBNJ6YMJcvZyoVVHVEAuLmlfw/viewform?usp=header" target="_blank" rel="noopener" style="padding:14px 28px;background:var(--bg);color:var(--forest);border-radius:999px;text-decoration:none;font-weight:600;font-size:.86rem;position:relative">応募する →</a>
           </div>
@@ -1429,7 +1488,7 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
             <div class="d-faq-item"><div class="d-faq-q"><span>生後すぐでも利用できますか？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">はい、生後0ヶ月からご利用いただけます。新生児対応の研修を受けたシッターがお伺いします。妊娠中の方もご応募歓迎です。</div></div></div>
             <div class="d-faq-item"><div class="d-faq-q"><span>シッターが合わなかった場合は？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">専任コンシェルジュが間に入り別のシッターをご紹介します。加入直後の「初回無料クーポン2枚」は、まさに「合うシッターを見つけるための試用枠」です。</div></div></div>
             <div class="d-faq-item"><div class="d-faq-q"><span>割引の「繰越」はどういう仕組み？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">定期利用割引は月上限¥10,000までの10%OFF。使い切らなかった分は翌月以降に繰り越せます。忙しかった月の割引を、使いたい月にまとめて使える設計です（解約時には失効）。</div></div></div>
-            <div class="d-faq-item"><div class="d-faq-q"><span>累計時間のカウントは？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">プラン加入期間中のシッティング利用時間を累計でカウント。30h/100h/300hに到達するごとにクーポンを自動付与。クーポンは達成後6ヶ月間有効。</div></div></div>
+            <div class="d-faq-item"><div class="d-faq-q"><span>累計時間のカウントは？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">プラン加入期間中のシッティング利用時間を累計でカウント。100時間ごと（100h / 200h / 300h到達）に¥10,000相当のクーポンを自動付与し、最大¥30,000相当までお受け取りいただけます。クーポンは達成後6ヶ月間有効。</div></div></div>
           </div>
         </div>
       </section>
