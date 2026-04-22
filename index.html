@@ -51,7 +51,7 @@
 <section class="pane" id="pane-sim">
 <div class="sim">
 <h1>プレミアムプラン 収益シミュレーター</h1>
-<p class="sim-sub">料金・加入者・割引率・割引上限を動かして、事業収益とユーザーのお得額を同時に確認できます。</p>
+<p class="sim-sub">料金・加入者・割引率を動かして、事業収益とユーザーのお得額を同時に確認できます。割引は上限なしの設計（固定）。</p>
 
 <!-- 2-column layout: Variables | Results -->
 <div class="lay">
@@ -60,8 +60,9 @@
     <div class="ig"><div class="ig-top"><span class="ig-label">① プラン月額料金（税込）</span><span class="ig-val" id="d-fee">¥9,800<small>/月</small></span></div><input type="range" id="s-fee" class="ig-slider" min="2000" max="20000" step="100" value="9800"><div class="ig-range"><span>¥2,000</span><span>¥20,000</span></div><div class="ig-hint" id="d-fee-extax">税抜 ¥8,909 ＋ 消費税 ¥891</div></div>
     <div class="ig"><div class="ig-top"><span class="ig-label">② 月間の加入ペース</span><span class="ig-val" id="d-pace">10<small>名/月</small></span></div><input type="range" id="s-pace" class="ig-slider" min="1" max="50" step="1" value="13"><div class="ig-range"><span>1名/月</span><span>50名/月</span></div><div class="ig-hint">0名スタート。デフォルト13名/月で1年目末（2027年3月）時点で143名（受入上限153名以内）。</div></div>
     <div class="ig"><div class="ig-top"><span class="ig-label">③ 割引率（シッティング料金に対して）</span><span class="ig-val" id="d-rate">10<small>%</small></span></div><input type="range" id="s-rate" class="ig-slider" min="0" max="15" step="1" value="10"><div class="ig-range"><span>0%</span><span>15%</span></div><div class="ig-hint">現在は「定期利用のみ10%」。全利用に広げるなら率を下げてバランスを取る。</div></div>
-    <div class="ig"><div class="ig-top"><span class="ig-label">④ 割引の月額上限（1人あたり）</span><span class="ig-val" id="d-cap">¥10,000<small>/月</small></span></div><input type="range" id="s-cap" class="ig-slider" min="0" max="30000" step="1000" value="10000"><div class="ig-range"><span>¥0</span><span>¥30,000</span></div><div class="ig-hint">1人が月に受けられる割引の上限額。高いほどヘビーユーザーにお得。</div><div class="ig-calc">実質の割引コスト/人/月<strong id="d-eff">¥7,850</strong></div></div>
-    <div class="ig"><div class="ig-top"><span class="ig-label">⑤ 累計特典の総額（1人あたり最大）</span><span class="ig-val" id="d-cumul">¥30,000<small>/最大</small></span></div><input type="range" id="s-cumul" class="ig-slider" min="0" max="150000" step="10000" value="30000"><div class="ig-range"><span>¥0</span><span>¥150,000</span></div><div class="ig-calc">月次コスト/人/月<strong id="d-cumul-cost">¥2,500</strong></div></div>
+    <div class="ig"><div class="ig-top"><span class="ig-label">④ 割引の月額上限</span><span class="ig-val" id="d-cap" style="color:var(--forest)">上限なし</span></div><input type="range" id="s-cap" class="ig-slider" min="0" max="30000" step="1000" value="0"><div class="ig-range"><span>上限なし</span><span>¥30,000</span></div><div class="ig-hint" style="margin-top:6px;font-size:.72rem">0=上限なし（現案）・右に動かすと上限設定可能</div><div class="ig-calc">実質の割引コスト/人/月<strong id="d-eff">¥12,480</strong></div></div>
+    <div class="ig"><div class="ig-top"><span class="ig-label">⑤ バースデークーポン（年1回・お子さまのお誕生月）</span><span class="ig-val" id="d-birthday">¥10,000<small>/年</small></span></div><input type="range" id="s-birthday" class="ig-slider" min="0" max="30000" step="1000" value="10000"><div class="ig-range"><span>¥0</span><span>¥30,000</span></div><div class="ig-hint" style="margin-top:6px;font-size:.72rem">1年目は付与なし想定、巡航年から月次按分</div><div class="ig-calc">月次コスト/人/月（巡航）<strong id="d-birthday-cost">¥833</strong></div></div>
+    <div class="ig"><div class="ig-top"><span class="ig-label">⑥ マイルストーン特典（段階UP型）</span><span class="ig-val" id="d-cumul" style="color:var(--forest);font-size:1rem">¥30,000<small>/最大</small></span></div><input type="range" id="s-milestone" class="ig-slider" min="0" max="100000" step="5000" value="30000"><div class="ig-range"><span>¥0</span><span>¥100,000</span></div><div class="ig-hint" style="margin-top:6px;line-height:1.7;font-size:.72rem"><span id="d-milestone-tiers">100h:¥5,000 → 200h:¥10,000 → 300h:¥15,000</span><br><span style="font-size:.66rem;color:var(--ink-m)">到達率（100h:60% / 200h:40% / 300h:25%）を考慮した期待値で月次按分。金額は最大額を1:2:3で段階配分</span></div><div class="ig-calc">月次コスト/人/月<strong id="d-cumul-cost">¥896</strong></div></div>
     <div class="ig-sep">固定前提</div>
     <div style="padding:10px 14px;background:var(--bg);border-radius:3px;font-size:.76rem;color:var(--ink-s);line-height:1.9;margin-bottom:0">保護者の平均利用時間：<strong style="color:var(--ink)">30h/月</strong><br>シッター空き稼働時間の活用率：<strong style="color:var(--ink)">30%</strong> <span style="font-size:.66rem;color:var(--ink-m)">（スケジュール登録済みだが未稼働の時間のうち、時間帯・エリアがマッチする割合の仮定値）</span></div>
   </div>
@@ -70,7 +71,7 @@
     <!-- 1. 年純利益 -->
     <div class="rc rc--big" id="rc-main">
       <div class="rc-label">1年目 純利益 <span style="font-size:.56rem;color:rgba(250,246,236,.55);margin-left:6px;letter-spacing:.08em;text-transform:none">（2026年5月〜2027年3月 / 11ヶ月）</span></div>
-      <div class="rc-main-desc">プラン料金＋マッチング手数料の<b>売上</b>から、クーポン割引・カメラ贈呈・累計特典クーポンなどの<b>変動コスト</b>を差し引いた金額。</div>
+      <div class="rc-main-desc">プラン料金＋マッチング手数料の<b>売上</b>から、月次割引・バースデークーポン・マイルストーン特典などの<b>変動コスト</b>を差し引いた金額（1年目はお誕生月未到来想定でバースデー計上なし、カメラ贈呈¥160,000を固定費として控除）。</div>
       <div class="rc-val" id="o-annual"></div>
       <div style="font-size:.7rem;color:var(--terra-s);margin-top:6px;letter-spacing:.04em" id="o-y1-sub">0名スタート → 月13名ずつ加入 → 11ヶ月間（2026年5月〜2027年3月）の累計</div>
 
@@ -121,11 +122,11 @@
 
         <div class="cd-block">
           <div class="cd-block-lbl">▼ 変動コスト</div>
-          <div class="cd-row"><span class="cd-l">クーポン割引</span><span class="cd-v" id="cd-disc">—</span></div>
+          <div class="cd-row"><span class="cd-l">定期利用割引（上限なし）</span><span class="cd-v" id="cd-disc">—</span></div>
           <div class="cd-row cd-sub"><span class="cd-l" id="cd-disc-formula">—</span><span class="cd-v"></span></div>
-          <div class="cd-row"><span class="cd-l">初回クーポン償却</span><span class="cd-v" id="cd-welcome">—</span></div>
-          <div class="cd-row cd-sub" style="font-size:.66rem"><span class="cd-l">¥6,600 ÷ 12ヶ月</span><span class="cd-v"></span></div>
-          <div class="cd-row"><span class="cd-l">累計特典</span><span class="cd-v" id="cd-cumul">—</span></div>
+          <div class="cd-row"><span class="cd-l">バースデークーポン（月次按分・巡航年のみ）</span><span class="cd-v" id="cd-anniv">—</span></div>
+          <div class="cd-row cd-sub" style="font-size:.66rem"><span class="cd-l">¥10,000 ÷ 12ヶ月 ※1年目はお誕生月未到来想定で¥0</span><span class="cd-v"></span></div>
+          <div class="cd-row"><span class="cd-l">マイルストーン特典</span><span class="cd-v" id="cd-cumul">—</span></div>
           <div class="cd-row cd-sub" style="font-size:.66rem"><span class="cd-l" id="cd-cumul-formula">—</span><span class="cd-v"></span></div>
           <div class="cd-row cd-total cd-neg"><span class="cd-l">変動コスト 計</span><span class="cd-v" id="cd-cost-total">—</span></div>
         </div>
@@ -153,7 +154,7 @@
         <div class="bd-r"><span class="bd-l bd-l--in">└ マッチング手数料</span><span class="bd-v" id="b-match"></span></div>
         <div class="bd-r bd-r--neg" style="margin-top:8px"><span class="bd-l">変動コスト</span><span class="bd-v" id="b-var"></span></div>
         <div class="bd-r"><span class="bd-l bd-l--in">└ 割引（実質コスト）</span><span class="bd-v" id="b-disc"></span></div>
-        <div class="bd-r"><span class="bd-l bd-l--in">└ 初回クーポン・カメラ・累計特典</span><span class="bd-v" id="b-other"></span></div>
+        <div class="bd-r"><span class="bd-l bd-l--in">└ バースデー・マイルストーン特典</span><span class="bd-v" id="b-other"></span></div>
         <div class="bd-r bd-r--t"><span class="bd-l">月純利益</span><span class="bd-v" id="b-net"></span></div>
       </div>
     </div>
@@ -164,8 +165,8 @@
       <div class="user-card-grid">
         <div class="user-card-item"><span class="user-card-item-l">年間プラン料金</span><span class="user-card-item-v" id="u-pay"></span></div>
         <div class="user-card-item"><span class="user-card-item-l">年間割引（最大）</span><span class="user-card-item-v user-card-item-v--pos" id="u-disc"></span></div>
-        <div class="user-card-item"><span class="user-card-item-l">加入直後特典</span><span class="user-card-item-v user-card-item-v--pos">¥6,600</span></div>
-        <div class="user-card-item"><span class="user-card-item-l">累計特典（全達成時）</span><span class="user-card-item-v user-card-item-v--pos" id="u-cumul"></span></div>
+        <div class="user-card-item"><span class="user-card-item-l">バースデークーポン（毎年）</span><span class="user-card-item-v user-card-item-v--pos">¥10,000相当</span></div>
+        <div class="user-card-item"><span class="user-card-item-l">マイルストーン（全達成時）</span><span class="user-card-item-v user-card-item-v--pos" id="u-cumul"></span></div>
       </div>
       <div class="user-card-bottom"><span class="user-card-bottom-l">最大お得額</span><span class="user-card-bottom-v" id="u-net"></span></div>
       <div id="u-breakeven" style="margin-top:14px;padding:12px 14px;background:var(--bg-s);border-radius:3px;border-left:2px solid var(--forest);font-size:.82rem;color:var(--ink);line-height:1.7"></div>
@@ -217,10 +218,10 @@
 <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">入会金</td><td style="padding:8px 10px;font-weight:700;color:var(--forest)">無料</td><td style="padding:8px 10px">無料</td><td style="padding:8px 10px">¥110,000</td><td style="padding:8px 10px">無料</td></tr>
 <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">月会費</td><td style="padding:8px 10px;font-weight:700;color:var(--forest)" id="bm-fee">¥9,800</td><td style="padding:8px 10px">¥4,000</td><td style="padding:8px 10px">¥11,000</td><td style="padding:8px 10px">プランなし<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">都度利用のみ</span></td></tr>
 <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">時給</td><td style="padding:8px 10px">¥3,300〜</td><td style="padding:8px 10px">¥3,000</td><td style="padding:8px 10px">¥3,740</td><td style="padding:8px 10px">シッターにより変動<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">¥1,000〜¥4,000</span></td></tr>
-<tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">割引 / 手数料</td><td style="padding:8px 10px;font-weight:700;color:var(--forest)" id="bm-disc">10%OFF 上限¥10,000<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">繰り越し可能</span></td><td style="padding:8px 10px">なし</td><td style="padding:8px 10px">なし</td><td style="padding:8px 10px">定期予約 手数料11%<br>単発予約 手数料22%<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">いずれも税込</span></td></tr>
+<tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">割引 / 手数料</td><td style="padding:8px 10px;font-weight:700;color:var(--forest)" id="bm-disc">10%OFF 上限なし<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">使った分だけ割引</span></td><td style="padding:8px 10px">なし</td><td style="padding:8px 10px">なし</td><td style="padding:8px 10px">定期予約 手数料11%<br>単発予約 手数料22%<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">いずれも税込</span></td></tr>
 <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">専任担当</td><td style="padding:8px 10px;font-weight:700;color:var(--forest)">専任コンシェルジュ</td><td style="padding:8px 10px">助産師チーム</td><td style="padding:8px 10px">専属コンシェルジュ</td><td style="padding:8px 10px">なし<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">保護者が直接選択</span></td></tr>
 <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">シッター資格</td><td style="padding:8px 10px">有資格者100%</td><td style="padding:8px 10px">助産師100%</td><td style="padding:8px 10px">有資格者＋研修済み</td><td style="padding:8px 10px">登録者ごと<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">無資格者も在籍</span></td></tr>
-<tr><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">特徴</td><td style="padding:8px 10px;font-size:.72rem">初回¥6,600還元・累計特典最大¥30k・おでかけ同伴・見守りカメラ贈呈（初回ローンチ限定）・10都府県選考制</td><td style="padding:8px 10px;font-size:.72rem">低月齢特化・LINE相談24h・月額制で気軽</td><td style="padding:8px 10px;font-size:.72rem">英国式教育・スーパーナニー・家事含むフルサービス</td><td style="padding:8px 10px;font-size:.72rem">登録者数最大級・安価な単価・保護者主導のマッチング・ただし選定負荷が高い</td></tr>
+<tr><td style="padding:8px 10px;color:var(--ink-m);font-weight:600">特徴</td><td style="padding:8px 10px;font-size:.72rem">10%OFF上限なし・バースデークーポン・マイルストーン最大¥30k・専用ダイアル24h・見守りカメラ贈呈（初回ローンチ限定）・10都府県選考制</td><td style="padding:8px 10px;font-size:.72rem">低月齢特化・LINE相談24h・月額制で気軽</td><td style="padding:8px 10px;font-size:.72rem">英国式教育・スーパーナニー・家事含むフルサービス</td><td style="padding:8px 10px;font-size:.72rem">登録者数最大級・安価な単価・保護者主導のマッチング・ただし選定負荷が高い</td></tr>
 </tbody>
 </table>
 </div>
@@ -267,10 +268,11 @@
 <li><strong>プラン料金は税込表示</strong>：¥9,800＝税抜¥8,909＋消費税¥891。売上計上は税抜額</li>
 <li>マッチング手数料: ¥22,946/人/月（30h × シッター時給 × 28%）※シッター時給 = エリア別基準時給 + 0歳割増¥358。10都府県のシッター数加重平均で算出</li>
 <li>決済手数料: 税込プラン料金 × 4%（¥9,800時 ¥392、動的計算）</li>
-<li>割引コストは利用額の分布で加重平均（ヘビー50%: ¥120k / ミドル30%: ¥75k / ライト20%: ¥30k）し、上限でキャップ</li>
-<li>初回クーポン償却: ¥550/人/月（¥6,600 ÷ 12ヶ月）</li>
+<li><strong>定期利用割引（上限撤廃）</strong>: 利用額の分布で加重平均（超ヘビー30%: ¥150k / ヘビー50%: ¥120k / 条件下限20%: ¥99k ※応募条件「月30h以上」整合）×割引率。使った分だけそのまま割引</li>
+<li><strong>バースデークーポン</strong>: ¥10,000/年（お子さまのお誕生月に自動付与）を月次按分（¥833/人/月）。<b>1年目はお誕生月未到来想定で¥0</b>、巡航年から計上</li>
+<li><strong>マイルストーン特典（段階UP型）</strong>: 累計100h¥5,000 / 200h¥10,000 / 300h¥15,000（最大¥30,000）。到達率（60% / 40% / 25%）を考慮した<b>期待値¥10,750/人</b>を月次按分（≒¥896/人/月）</li>
 <li>見守りカメラ贈呈: 初回ローンチ限定・最大20名（¥8,000/台 × 20名 = ¥160,000）※1年目のみの固定コスト、1加入者月次コストには含まず、1年目純利益から一括控除</li>
-<li>累計特典の月次コスト: 総額 ÷ 12ヶ月（¥30k → ¥2,500/月、¥60k → ¥5,000/月）</li>
+<li>専用ダイアル: 事業全体の既存施策として運用予定のため、本プランの収益計算からは除外（¥0計上）</li>
 <li>キャンセル料補填は本プランでは提供しないため計算に含まず</li>
 <li>固定コスト（供給投資・専任コンシェルジュ人件費）は本シミュレーターに含まず</li>
 </ul></div>
@@ -280,35 +282,35 @@
 <div class="bd" id="disc-scenario-toggle" style="cursor:pointer;max-width:1200px;margin:24px auto 0;box-sizing:border-box">
   <h3 style="display:flex;justify-content:space-between;align-items:center">補足：割引なし（0%）シナリオの検討<span id="ds-arrow" style="font-size:1rem;color:var(--ink-m);transition:transform .3s">▼</span></h3>
   <div id="ds-body" style="display:none">
-    <p style="font-size:.8rem;color:var(--ink-s);line-height:1.85;margin-bottom:14px">現行前提（プラン税込¥9,800 / 累計特典¥30,000 / 5月〜3月の11ヶ月 / 月13名ペース）で割引率を変えた場合の比較。割引は収益を大きく左右します。</p>
+    <p style="font-size:.8rem;color:var(--ink-s);line-height:1.85;margin-bottom:14px">新プラン前提（プラン税込¥9,800 / 割引上限撤廃 / バースデー¥10,000/年 / マイルストーン期待値¥10,750（最大¥30,000訴求） / 5月〜3月の11ヶ月 / 月13名ペース）で割引率を変えた場合の比較。</p>
     <div style="overflow-x:auto">
       <table style="width:100%;border-collapse:collapse;font-size:.78rem;line-height:1.6">
         <thead><tr style="border-bottom:2px solid var(--line);text-align:left">
           <th style="padding:8px 10px;font-weight:700">割引率</th>
           <th style="padding:8px 10px;text-align:right;font-weight:700">実質割引コスト</th>
-          <th style="padding:8px 10px;text-align:right;font-weight:700">1加入者粗利</th>
+          <th style="padding:8px 10px;text-align:right;font-weight:700">1加入者粗利（巡航）</th>
           <th style="padding:8px 10px;text-align:right;font-weight:700">1年目純利益</th>
           <th style="padding:8px 10px;text-align:right;font-weight:700">巡航年純利益</th>
         </tr></thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--line);background:rgba(40,73,56,.06)"><td style="padding:8px 10px;font-weight:700;color:var(--forest)">0%（割引なし）</td><td style="padding:8px 10px;text-align:right">¥0</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700">¥28,375</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700;color:var(--forest)">¥2,435万</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700;color:var(--forest)">¥4,869万</td></tr>
-          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">3%</td><td style="padding:8px 10px;text-align:right">¥2,655</td><td style="padding:8px 10px;text-align:right">¥25,720</td><td style="padding:8px 10px;text-align:right">¥2,207万</td><td style="padding:8px 10px;text-align:right">¥4,414万</td></tr>
-          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">5%</td><td style="padding:8px 10px;text-align:right">¥4,425</td><td style="padding:8px 10px;text-align:right">¥23,950</td><td style="padding:8px 10px;text-align:right">¥2,055万</td><td style="padding:8px 10px;text-align:right">¥4,110万</td></tr>
-          <tr style="background:rgba(196,102,63,.06)"><td style="padding:8px 10px;font-weight:700;color:var(--terra)">10%（現案）</td><td style="padding:8px 10px;text-align:right">¥7,850</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥20,525</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥1,761万</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥3,522万</td></tr>
+          <tr style="border-bottom:1px solid var(--line);background:rgba(40,73,56,.06)"><td style="padding:8px 10px;font-weight:700;color:var(--forest)">0%（割引なし）</td><td style="padding:8px 10px;text-align:right">¥0</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700">¥29,734</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700;color:var(--forest)">¥2,607万</td><td style="padding:8px 10px;text-align:right;font-family:var(--fs);font-weight:700;color:var(--forest)">¥5,102万</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">3%</td><td style="padding:8px 10px;text-align:right">¥3,744</td><td style="padding:8px 10px;text-align:right">¥25,990</td><td style="padding:8px 10px;text-align:right">¥2,285万</td><td style="padding:8px 10px;text-align:right">¥4,460万</td></tr>
+          <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px 10px">5%</td><td style="padding:8px 10px;text-align:right">¥6,240</td><td style="padding:8px 10px;text-align:right">¥23,494</td><td style="padding:8px 10px;text-align:right">¥2,071万</td><td style="padding:8px 10px;text-align:right">¥4,032万</td></tr>
+          <tr style="background:rgba(196,102,63,.06)"><td style="padding:8px 10px;font-weight:700;color:var(--terra)">10%（現案 / 上限撤廃）</td><td style="padding:8px 10px;text-align:right">¥12,480</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥17,254</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥1,536万</td><td style="padding:8px 10px;text-align:right;font-weight:700">¥2,961万</td></tr>
         </tbody>
       </table>
     </div>
 
     <div style="margin-top:14px;padding:12px 14px;background:rgba(40,73,56,.06);border-left:3px solid var(--forest);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85">
-      <b style="color:var(--forest)">割引なしにすると</b>：1年目 +¥674万、巡航年 +¥1,347万の収益改善。1加入者粗利は¥7,850/月増（現案¥20,525 → ¥28,375）。
+      <b style="color:var(--forest)">割引なしにすると</b>：1年目 +¥1,071万、巡航年 +¥2,141万の収益改善。1加入者粗利は¥12,480/月増（現案¥17,254 → ¥29,734）。
     </div>
 
     <div style="margin-top:10px;padding:12px 14px;background:rgba(176,74,60,.06);border-left:3px solid var(--neg);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85">
-      <b style="color:var(--neg)">ただしマッチング型のリスク</b>：KIDSNAはシッターへの指揮命令権がないマッチング型。保護者が「月額¥9,800を払ったのに良いシッターに出会えない」リスクを負う構造のため、割引がないと「月額を払う意味は？」への答えが<b>初回¥6,600＋累計¥30,000＋見守りカメラ＋コンシェルジュサービス</b>だけになり、選考に落ちた方の納得感や継続動機が弱まる可能性があります。
+      <b style="color:var(--neg)">ただしマッチング型のリスク</b>：KIDSNAはシッターへの指揮命令権がないマッチング型。保護者が「月額¥9,800を払ったのに良いシッターに出会えない」リスクを負う構造のため、割引がないと「月額を払う意味は？」への答えが<b>バースデー¥10k＋マイルストーン¥30k＋見守りカメラ＋専用ダイアル＋コンシェルジュサービス</b>だけになり、選考に落ちた方の納得感や継続動機が弱まる可能性があります。
     </div>
 
     <div style="margin-top:10px;padding:12px 14px;background:var(--bg-s);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85">
-      <b style="color:var(--gold)">現実的な落としどころ</b>：割引は「マッチング型であることへの保険料」として残しつつ、率を絞って収益を確保する。10%→5%に下げるだけで年約¥590万の改善。割引の有無・率は社長レビューで要議論。
+      <b style="color:var(--gold)">分布見直しの影響</b>：旧分布（ヘビー50%¥120k/ミドル30%¥75k/ライト20%¥30k）では10%OFF加重平均が¥8,850/人/月だったが、応募条件「月30h以上」と整合する新分布（超ヘビー30%¥150k/ヘビー50%¥120k/条件下限20%¥99k）では¥12,480/人/月（+¥3,630）。旧分布のライト層¥30,000利用は応募条件（月30h ≒ ¥99,000/月）を満たさない前提だったため、実態により近い見積もりに修正。
     </div>
   </div>
 </div>
@@ -420,53 +422,70 @@
 <div class="bd" id="legal-toggle" style="cursor:pointer;max-width:1200px;margin:24px auto 0;box-sizing:border-box">
   <h3 style="display:flex;justify-content:space-between;align-items:center">補足：景表法観点の確認事項・社内準備資料<span id="lg-arrow" style="font-size:1rem;color:var(--ink-m);transition:transform .3s">▼</span></h3>
   <div id="lg-body" style="display:none">
-    <p style="font-size:.8rem;color:var(--ink-s);line-height:1.85;margin-bottom:14px">LPの金額訴求（「¥6,600 OFF」「年間最大¥156,600相当」等）について、景品表示法・優良誤認防止観点で確認すべき事項。</p>
+    <p style="font-size:.8rem;color:var(--ink-s);line-height:1.85;margin-bottom:14px">LPの特典・割引訴求について、景品表示法・優良誤認防止の観点で確認すべき事項をまとめます。新プラン（上限撤廃10%OFF / バースデークーポン / マイルストーン¥30,000 / 専用ダイアル）に対応。</p>
 
-    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:18px 0 10px;color:var(--ink)">① 「加入直後 ¥6,600 相当」と「初回無料クーポン2枚」の根拠</div>
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:18px 0 10px;color:var(--ink)">① 「10%OFF・上限なし」訴求の裏付け</div>
     <div style="padding:14px 16px;background:var(--bg-s);border-left:3px solid var(--terra);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85;margin-bottom:10px">
-      <b style="color:var(--terra)">論点</b>：「平均¥3,300/回」という訴求の合理的根拠資料を社内保管する必要がある（景表法上、数値訴求の根拠は事業者側が立証責任を負う）。<br><br>
-      <b style="color:var(--ink)">必要な根拠資料</b><br>
-      ・調査対象：KIDSNAシッターに登録中の有資格者シッターの時給データ<br>
-      ・集計期間：直近N年 or 直近N件の予約実績（期間を明示）<br>
-      ・対象エリア：プラン対応10都府県のみ<br>
-      ・算出方法：単純平均 / 中央値 / 加重平均のいずれか（明示）<br>
-      ・サンプルサイズ：○名 × ○件<br><br>
-      <b style="color:var(--ink)">LP上の表記対応</b>（既に反映済）<br>
-      ・「¥6,600 OFF」→「<b>最大</b> ¥6,600 相当 OFF」に変更<br>
-      ・注記：「クーポン1枚につきシッティング料金¥3,300（当社平均時給）を上限に充当。シッターにより時給は異なり、¥3,300未満の場合は差額分は還元対象外」
-    </div>
-
-    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">② 「年間最大¥156,600相当の還元」の打消し表示</div>
-    <div style="padding:14px 16px;background:var(--bg-s);border-left:3px solid var(--terra);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85;margin-bottom:10px">
-      <b style="color:var(--terra)">論点</b>：「すべて特典を使い切った場合の最大値」の打消し表記はあるが、主訴求（¥156,600 の大きい赤字）との視認性差が大きかった。景表法ガイドラインの打消し表示基準に沿って修正。<br><br>
-      <b style="color:var(--ink)">景表法ガイドライン（打消し表示の基準）</b><br>
-      ・<b>文字サイズ</b>：主訴求と比較して極端に小さくない<br>
-      ・<b>視認距離・時間</b>：主訴求を見るのと同じ条件で読める<br>
-      ・<b>近接性</b>：主訴求の近くに配置され、関連性が認識できる<br>
-      ・<b>明瞭性</b>：誤認を解消するに足る具体性がある<br><br>
+      <b style="color:var(--terra)">論点</b>：「使った分だけ割引」という訴求が、具体的にどの料金項目に対してかかるのかを利用規約で明示する必要がある。<br><br>
+      <b style="color:var(--ink)">明示すべき内容</b><br>
+      ・割引対象：ご利用の都度お支払いいただくシッティング料金（保護者がシッター利用時に支払う都度課金分）<br>
+      ・割引対象外：交通費・延長料金・キャンセル料等の実費<br>
+      ・適用タイミング：月次の請求確定時に自動適用<br>
+      ・失効条件：解約時に未利用分は失効<br><br>
       <b style="color:var(--ink)">LP上の対応</b>（既に反映済）<br>
-      ・打消し表記の文字サイズを.76rem → .86remに拡大<br>
-      ・色のコントラストを rgba(250,246,236,.72) → .88 に向上<br>
-      ・文言を具体化：「月上限¥10,000まで、累計特典は300時間（月平均25時間×12ヶ月）利用時の最大値。ご利用状況により還元額は変動します」
+      ・Step01 注記：「割引対象：ご利用の都度お支払いいただくシッティング料金。延長料金・交通費等の実費は対象外」
     </div>
 
-    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">③ 300時間利用の統計的妥当性</div>
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">② バースデークーポン ¥10,000相当の訴求</div>
     <div style="padding:14px 16px;background:var(--bg-s);border-left:3px solid var(--terra);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85;margin-bottom:10px">
-      <b style="color:var(--terra)">論点</b>：累計特典の上限¥30,000（300時間達成）到達には、月平均25時間×12ヶ月 = <b>年間シッティング料金 約100万円</b>が前提。ここまで使う世帯の統計的割合に関する社内根拠を用意する必要がある。<br><br>
+      <b style="color:var(--terra)">論点</b>：「お子さまのお誕生月に¥10,000相当のバースデークーポン」と具体的金額を打ち出す以上、誰もが受け取れる形で運用する必要がある（選考で落とすなどはNG）。<br><br>
+      <b style="color:var(--ink)">必要な運用整備</b><br>
+      ・お子さまの生年月を入会時に収集し、毎月のお誕生月到来者に自動付与する運用フロー<br>
+      ・付与タイミング（お誕生月の月初 / 月次バッチ）の明確化<br>
+      ・有効期限（付与後6ヶ月）の通知フロー<br>
+      ・LP表記と利用規約の整合性確認<br>
+      ・お子さまが2人目以降ご誕生の場合の扱い（1家庭1クーポン / 子ごと等）を利用規約で明示<br><br>
+      <b style="color:var(--ink)">LP上の対応</b>（既に反映済）<br>
+      ・Step02 注記：「お子さまのお誕生月に自動付与 ・ シッティング料金に充当可能 ・ 付与後6ヶ月有効」
+    </div>
+
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">③ マイルストーン特典「最大¥30,000相当」の統計的妥当性</div>
+    <div style="padding:14px 16px;background:var(--bg-s);border-left:3px solid var(--terra);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85;margin-bottom:10px">
+      <b style="color:var(--terra)">論点</b>：段階UP型（100h¥5,000 / 200h¥10,000 / 300h¥15,000）で累計最大¥30,000。最終段300時間達成には月平均25時間×12ヶ月 ≒ <b>年間シッティング料金 約100万円</b>が前提で、各段階の到達家庭の割合に社内根拠が必要。<br><br>
       <b style="color:var(--ink)">必要な根拠データ</b><br>
       ・プラン対象想定層（0歳児・月30h以上利用想定家庭）の年間シッティング時間分布<br>
-      ・過去の既存ユーザーで類似利用パターンの家庭が何%存在したか<br>
-      ・「300時間到達」を実現する家庭の割合（統計的に一般的でないなら「一部の家庭が受けられる最大値」と追記検討）<br><br>
+      ・過去の既存ユーザーで100h/200h/300h各段階に到達した家庭の割合<br>
+      ・シミュレーターは期待値計算（100h:60% / 200h:40% / 300h:25%）を仮置きで用いており、実データでの検証が必要<br><br>
       <b style="color:var(--ink)">対応方針の選択肢</b><br>
-      ・A：実データで300時間到達家庭が○%と示せる場合、そのまま「年間最大¥156,600相当」訴求を維持<br>
-      ・B：到達家庭が少数の場合、「ヘビーユーザーの場合最大¥156,600相当」のような条件付き表記に変更
+      ・A：実データで各段階の到達率が示せる場合、現LP表記を維持<br>
+      ・B：到達家庭が想定より少ない場合、「最大¥30,000相当」を「長期ご利用の方が受けられる最大額」などの条件付き表記に変更
+    </div>
+
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">④ 見守りカメラ「無償プレゼント」の条件明示</div>
+    <div style="padding:14px 16px;background:var(--bg-s);border-left:3px solid var(--terra);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85;margin-bottom:10px">
+      <b style="color:var(--terra)">論点</b>：「初回ローンチ限定」「希望者のみ」「最大20名」という条件を打消し表記として明示する必要がある。<br><br>
+      <b style="color:var(--ink)">LP上の対応</b><br>
+      ・【初回ローンチ限定】のラベル表記（terra色で強調）<br>
+      ・「希望者のみ・返却不要」の明記<br>
+      ・「最大20名」の上限も社内規定として文書化（LP上の記載有無は要検討）
+    </div>
+
+    <div style="font-family:var(--fs);font-size:.95rem;font-weight:700;margin:22px 0 10px;color:var(--ink)">⑤ 「専用ダイアル 24時間対応」の実態整備</div>
+    <div style="padding:14px 16px;background:var(--bg-s);border-left:3px solid var(--terra);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85;margin-bottom:10px">
+      <b style="color:var(--terra)">論点</b>：「24時間対応」と訴求する以上、実態として24時間繋がる運用体制が必要。夜間の応答が翌朝になる運用なら「24時間受付・折返し対応」等の明記が必須。<br><br>
+      <b style="color:var(--ink)">確認すべきこと</b><br>
+      ・実際の運営体制：24時間生対応か、受付のみ24時間で対応は営業時間内か<br>
+      ・応答時間のSLA（例：深夜でも1時間以内に応答 / 翌朝までに折返し 等）<br>
+      ・LP上の表現を実態に合わせる（「24時間繋がる」vs「24時間受付」で景表法上の意味が異なる）
     </div>
 
     <div style="margin-top:14px;padding:12px 14px;background:rgba(40,73,56,.06);border-left:3px solid var(--forest);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--ink-s);line-height:1.85">
       <b style="color:var(--forest)">社内準備チェックリスト</b><br>
-      ☐ 平均時給¥3,300の算出根拠資料（対象・期間・エリア・算出方法を明記）<br>
-      ☐ 300時間利用世帯の統計データ（既存ユーザー分析・または業界データの参照）<br>
-      ☐ クーポン対象外ケースの整理（シッター時給が¥3,300未満の場合の差額扱い等）<br>
+      ☐ 10%OFFの割引対象範囲の利用規約明記（シッティング料金のみ・実費は対象外）<br>
+      ☐ バースデークーポン付与運用フロー整備（お子さま生年月収集・月次バッチ処理）<br>
+      ☐ マイルストーン到達家庭の統計データ（既存ユーザー分析 or 業界データ）<br>
+      ☐ 見守りカメラ贈呈の対象選定ルール（先着順／応募順／選考基準）<br>
+      ☐ 専用ダイアルの運営実態の定義とSLA策定（24時間生対応 or 受付のみ）<br>
       ☐ LPと利用規約の整合性（すべての打消し条件が規約に反映されているか）<br>
       ☐ 法務レビューの実施（ローンチ前に景表法・特商法観点で最終確認）
     </div>
@@ -486,20 +505,57 @@ document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',()=>{do
 const MATCH=22946,PAY_FEE_RATE=0.04,TAX_RATE=0.10,BASE_GPU=15186,TGT=30000000;
 // 特典コストの月次按分（年間12ヶ月で除算）
 const MONTHS_PER_YEAR=12;
-const WELCOME_TOTAL=6600;          // 初回クーポン総額
+// 加入直後特典は廃止（¥0）
+const WELCOME_TOTAL=0;
+const WELCOME=0;
+// カメラ贈呈
 const CAMERA_UNIT=8000;             // 見守りカメラ単価（中価格帯想定）
 const CAMERA_MAX=20;                // 贈呈対象の最大人数（初回ローンチ限定）
 const CAMERA_TOTAL_Y1=CAMERA_UNIT*CAMERA_MAX;  // 1年目固定コスト = ¥160,000
 const CAMERA=0;                     // 1加入者あたり月次コストからは除外（固定費として別計上）
-const WELCOME=Math.round(WELCOME_TOTAL/MONTHS_PER_YEAR);  // ≒ ¥550
-function otherCost(cumulTotal){
-  // 累計特典も年間で按分
-  const cumulMonthly=Math.round(cumulTotal/MONTHS_PER_YEAR);
-  return WELCOME + CAMERA + cumulMonthly;
+// バースデークーポン（お子さまのお誕生月に年1回付与）
+// S.birthdayでスライダー制御、1年目はお誕生月未到来想定で発生なし
+// 専用ダイアル：事業全体の既存施策として予算計上しない（0円）
+const HOTLINE=0;
+// マイルストーン特典（段階UP型）
+// S.milestoneで最大額を制御、3段階は1:2:3の比率で分配
+// 例: 最大¥30,000 → 100h¥5k / 200h¥10k / 300h¥15k
+const MILESTONE_RATES=[0.60, 0.40, 0.25]; // 各段階の到達率
+function getMilestoneTiers(maxTotal){
+  // 1:2:3の比率で段階配分（合計maxTotal）
+  // 1x + 2x + 3x = 6x = maxTotal → x = maxTotal/6
+  const unit = maxTotal / 6;
+  return [
+    {h:100, amount:Math.round(unit*1), rate:MILESTONE_RATES[0]},
+    {h:200, amount:Math.round(unit*2), rate:MILESTONE_RATES[1]},
+    {h:300, amount:Math.round(unit*3), rate:MILESTONE_RATES[2]}
+  ];
 }
-const DIST=[{w:.5,s:120000},{w:.3,s:75000},{w:.2,s:30000}];
+function getMilestoneEV(maxTotal){
+  const tiers = getMilestoneTiers(maxTotal);
+  return tiers.reduce((a,t)=>a+t.amount*t.rate, 0);
+}
+function getMilestoneMonthly(maxTotal){
+  return Math.round(getMilestoneEV(maxTotal) / MONTHS_PER_YEAR);
+}
+function otherCost(cumulTotal, isY1){
+  // マイルストーン特典は期待値ベースで月次按分（最大額はSから動的に）
+  const cumulMonthly = getMilestoneMonthly(cumulTotal);
+  // バースデークーポン月次按分（1年目は0）
+  const birthdayMonthly = Math.round(S.birthday / MONTHS_PER_YEAR);
+  const birthdayThisPhase = isY1 ? 0 : birthdayMonthly;
+  return WELCOME + CAMERA + HOTLINE + birthdayThisPhase + cumulMonthly;
+}
+// 利用額分布: C案(30/50/20) — 応募条件「月30時間以上」と整合
+// 超ヘビー(月45h, ¥150,000利用)30% / ヘビー(月36h, ¥120,000利用)50% / 条件下限(月30h, ¥99,000利用)20%
+// 時給¥3,300(マッチング手数料込み・保護者支払額)での換算
+// 加重平均割引(10%): ¥12,480/人/月
+const DIST=[{w:0.3,s:150000},{w:0.5,s:120000},{w:0.2,s:99000}];
 function calcDisc(rate,cap){let t=0;for(const d of DIST)t+=d.w*Math.min(d.s*(rate/100),cap);return Math.round(t)}
-const S={fee:9800,pace:13,rate:10,cap:10000,cumul:30000};
+// 上限撤廃：cap は非常に大きな値にすることで「上限なし」を表現
+// 上限撤廃：cap は非常に大きな値にすることで「上限なし」を表現
+// capスライダーは0=上限なし、正の値=上限設定として扱う（S.capは常に有効値を保持）
+const S={fee:9800,pace:13,rate:10,cap:999999,capSlider:0,birthday:10000,milestone:30000,cumul:30000};
 // キャンセル料補填は本プランでは提供しない、供給投資は別管理のため計算から除外
 const SURPLUS=27049;
 const UTIL=0.3; // 余剰の活用可能率（仮定30%: 時間帯・エリアマッチ考慮）
@@ -508,27 +564,34 @@ const USER_H=30; // 加入保護者平均利用時間（固定）
 const fmt=n=>{const s=n<0?'−':'';return s+'¥'+Math.abs(Math.round(n)).toLocaleString('ja-JP')};
 const fmtM=n=>{const s=n<0?'−':'';return s+'¥'+Math.round(Math.abs(n)/10000).toLocaleString('ja-JP')};
 function calc(){
-  const{fee,pace,rate,cap,cumul}=S;
+  const{fee,pace,rate,milestone}=S;
+  // capSliderが0なら上限なし（実質的に非常に大きな値）、それ以外はそのまま上限額として使う
+  const cap = S.capSlider===0 ? 999999 : S.capSlider;
   // 2026年5月開始〜2027年3月までの11ヶ月で1年目を計算
   const MONTHS_Y1=11;
   const subs=pace*MONTHS_Y1; // 1年目末加入者
   const disc=calcDisc(rate,cap);
-  const otherPU=otherCost(cumul); // 1人あたり月次コスト（クーポン+カメラ+累計特典の償却分）
+  // 1年目用（バースデーなし）と巡航用（バースデーあり）で別計算
+  const otherPU_Y1=otherCost(milestone, true);    // 1年目：バースデー発生せず
+  const otherPU_Cruise=otherCost(milestone, false); // 巡航年：バースデー月次按分あり
+  const otherPU = otherPU_Cruise; // 表示上は巡航値を使う
   // プラン料金は税込。決済手数料は税込金額ベースで引かれ、売上計上は税抜分
   const feeExTax=Math.round(fee/(1+TAX_RATE));     // 税抜プラン料金
   const tax=fee-feeExTax;                           // 消費税（預り金）
   const payFee=Math.round(fee*PAY_FEE_RATE);       // 決済手数料（税込額の4%）
   const planRevPU=feeExTax-payFee;                  // 売上に計上できるプラン料金（税抜−決済手数料）
   const revPU=MATCH+planRevPU;
-  const costPU=disc+otherPU;
-  const gpu=revPU-costPU;
+  const costPU=disc+otherPU;           // 巡航ベースでの粗利
+  const costPU_Y1=disc+otherPU_Y1;     // 1年目ベースでの粗利
+  const gpu=revPU-costPU;              // 巡航粗利（メイン表示用）
+  const gpu_Y1=revPU-costPU_Y1;        // 1年目粗利
   // 巡航（1年目末キャパシティ時、12ヶ月換算）— 供給投資は除外
   const totalRev=revPU*subs;const planRev=planRevPU*subs;const matchRev=MATCH*subs;
   const discT=disc*subs;const otherT=otherPU*subs;const varC=discT+otherT;
   const totalG=gpu*subs;const mNet=totalG;const aCruise=mNet*12;
-  // 1年目 ramp-up — 5月〜3月の11ヶ月累計、供給投資除外
+  // 1年目 ramp-up — 5月〜3月の11ヶ月累計、アニバなし・カメラ固定費あり
   let y1=0;
-  for(let m=1;m<=MONTHS_Y1;m++){y1+=(gpu*pace*m);}
+  for(let m=1;m<=MONTHS_Y1;m++){y1+=(gpu_Y1*pace*m);}
   // カメラ贈呈は初回ローンチ限定（最大20名分）の1年目固定コストとして差し引く
   y1 -= CAMERA_TOTAL_Y1;
   const be=gpu>0?1:Infinity; // 供給投資を除外すれば粗利>0で即黒字
@@ -540,16 +603,28 @@ function calc(){
   let bottleneckCap=Infinity,bottleneckSlot='';
   SLOTS.forEach(s=>{const cap=Math.floor(s.idle*UTIL/perSlot);if(cap<bottleneckCap){bottleneckCap=cap;bottleneckSlot=s.name}});
   const supplyGap=(bottleneckCap*USER_H)-demandHours;
-  return{revPU,costPU,gpu,disc,otherPU,subs,totalRev,planRev,matchRev,discT,otherT,varC,totalG,mNet,aCruise,y1,be,target,demandHours,supplyGap,bottleneckCap,bottleneckSlot,feeExTax,tax,payFee,planRevPU,MONTHS_Y1}
+  return{revPU,costPU,costPU_Y1,gpu,gpu_Y1,disc,otherPU,otherPU_Y1,subs,totalRev,planRev,matchRev,discT,otherT,varC,totalG,mNet,aCruise,y1,be,target,demandHours,supplyGap,bottleneckCap,bottleneckSlot,feeExTax,tax,payFee,planRevPU,MONTHS_Y1}
 }
 function render(){
   const r=calc();
   document.getElementById('d-fee').innerHTML=fmt(S.fee)+'<small>/月</small>';
   document.getElementById('d-pace').innerHTML=S.pace+'<small>名/月</small>';
   document.getElementById('d-rate').innerHTML=S.rate+'<small>%</small>';
-  document.getElementById('d-cap').innerHTML=fmt(S.cap)+'<small>/月</small>';
-  document.getElementById('d-cumul').innerHTML=fmt(S.cumul)+'<small>/最大</small>';
-  document.getElementById('d-cumul-cost').textContent=fmt(r.otherPU-WELCOME-CAMERA);
+  // 割引上限：0=上限なし、それ以外=値を表示
+  if(S.capSlider===0){
+    document.getElementById('d-cap').innerHTML='<span style="color:var(--forest)">上限なし</span>';
+  } else {
+    document.getElementById('d-cap').innerHTML=fmt(S.capSlider)+'<small>/月</small>';
+  }
+  // バースデークーポン
+  document.getElementById('d-birthday').innerHTML=fmt(S.birthday)+'<small>/年</small>';
+  const birthdayMonthly=Math.round(S.birthday/MONTHS_PER_YEAR);
+  document.getElementById('d-birthday-cost').textContent=fmt(birthdayMonthly);
+  // マイルストーン特典：S.milestone最大額から段階配分
+  document.getElementById('d-cumul').innerHTML=fmt(S.milestone)+'<small>/最大</small>';
+  const tiers=getMilestoneTiers(S.milestone);
+  document.getElementById('d-milestone-tiers').textContent='100h:¥'+tiers[0].amount.toLocaleString()+' → 200h:¥'+tiers[1].amount.toLocaleString()+' → 300h:¥'+tiers[2].amount.toLocaleString();
+  document.getElementById('d-cumul-cost').textContent=fmt(getMilestoneMonthly(S.milestone));
   document.getElementById('d-eff').textContent=fmt(r.disc);
   const main=document.getElementById('rc-main');main.className=r.y1<0?'rc rc--big rc--red':'rc rc--big';
   document.getElementById('o-annual').innerHTML=fmtM(r.y1)+'<span>万</span>';
@@ -568,10 +643,13 @@ function render(){
   document.getElementById('o-gpu').textContent=fmt(r.gpu)+'/月';
   // Benchmark sync
   const bmFee=document.getElementById('bm-fee');if(bmFee)bmFee.textContent='¥'+S.fee.toLocaleString();
-  const bmDisc=document.getElementById('bm-disc');if(bmDisc)bmDisc.innerHTML=S.rate+'%OFF 上限¥'+S.cap.toLocaleString()+'<br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">繰り越し可能</span>';
+  const bmDisc=document.getElementById('bm-disc');if(bmDisc)bmDisc.innerHTML=S.rate+'%OFF <b style="color:var(--forest)">'+(S.capSlider===0?'上限なし':'上限¥'+S.capSlider.toLocaleString())+'</b><br><span style="font-size:.68rem;color:var(--ink-s);font-weight:500">使った分だけ割引</span>';
 
   // Calc detail (1加入者あたり月次)
-  const cumulMonthly=Math.round(S.cumul/MONTHS_PER_YEAR);
+  const cumulMonthly=getMilestoneMonthly(S.milestone);
+  const birthdayMonthlyCalc=Math.round(S.birthday/MONTHS_PER_YEAR);
+  const milestoneEV=getMilestoneEV(S.milestone);
+  const tiersForDetail=getMilestoneTiers(S.milestone);
   document.getElementById('cd-plan-raw').textContent=fmt(S.fee);
   document.getElementById('cd-tax').textContent='−'+fmt(r.tax);
   document.getElementById('cd-plan-extax').textContent=fmt(r.feeExTax);
@@ -580,10 +658,10 @@ function render(){
   document.getElementById('cd-match').textContent=fmt(MATCH);
   document.getElementById('cd-rev-total').textContent=fmt(r.revPU);
   document.getElementById('cd-disc').textContent='−'+fmt(r.disc);
-  document.getElementById('cd-disc-formula').textContent='利用額分布×'+S.rate+'% ・ 上限¥'+S.cap.toLocaleString()+'（加重平均）';
-  document.getElementById('cd-welcome').textContent='−'+fmt(WELCOME);
+  document.getElementById('cd-disc-formula').textContent='利用額分布×'+S.rate+'%（'+(S.capSlider===0?'上限なし':'上限¥'+S.capSlider.toLocaleString())+'・加重平均）';
+  document.getElementById('cd-anniv').textContent='−'+fmt(birthdayMonthlyCalc)+' ／ 1年目 ¥0';
   document.getElementById('cd-cumul').textContent='−'+fmt(cumulMonthly);
-  document.getElementById('cd-cumul-formula').textContent='¥'+S.cumul.toLocaleString()+' ÷ 12ヶ月';
+  document.getElementById('cd-cumul-formula').textContent='期待値¥'+Math.round(milestoneEV).toLocaleString()+' ÷ 12ヶ月（¥'+tiersForDetail[0].amount.toLocaleString()+'×60% + ¥'+tiersForDetail[1].amount.toLocaleString()+'×40% + ¥'+tiersForDetail[2].amount.toLocaleString()+'×25%）';
   document.getElementById('cd-cost-total').textContent='−'+fmt(r.costPU);
   // スライダー①下の税抜/消費税表示を動的更新
   const feeExTaxEl=document.getElementById('d-fee-extax');
@@ -612,16 +690,19 @@ function render(){
   document.getElementById('sup-gap').style.color=r.supplyGap>=0?'var(--pos)':'var(--neg)';
   const supNote=document.getElementById('sup-note');
   supNote.innerHTML='<div style="font-size:.68rem;color:var(--ink-m);margin-bottom:6px">計算ロジック（月次・ボトルネック基準）</div>'+(r.supplyGap>=0?'<span style="color:var(--pos)">✓ '+r.bottleneckSlot+'基準の受入上限'+r.bottleneckCap+'名 ≥ 需要'+r.subs+'名。既存シッターで吸収可能。</span>':'<span style="color:var(--neg)">⚠ '+r.bottleneckSlot+'基準の受入上限'+r.bottleneckCap+'名 ＜ 需要'+r.subs+'名。'+Math.abs(r.supplyGap).toLocaleString()+'h不足。</span>')+'<br><span style="font-size:.68rem;color:var(--ink-m)">各時間帯の余剰×'+Math.round(UTIL*100)+'%÷7.5h（30h÷4帯）の最小値 = '+r.bottleneckSlot+' '+r.bottleneckCap+'名</span>';
-  // User perspective (max values)
+  // User perspective (max values) — 新プラン: 常時10%OFF＋バースデー＋マイルストーン
   const HOURLY=3300;
   const annualPay=S.fee*12;
-  const annualDiscMax=S.cap*12;
-  const welcomeGift=6600;
-  const cumulMax=S.cumul;
-  const totalBenefit=annualDiscMax+welcomeGift+cumulMax;
+  // ヘビーユーザー想定（月¥120,000利用）での年間割引（上限考慮）
+  const effectiveCap = S.capSlider===0 ? 999999 : S.capSlider;
+  const monthlyDiscHeavy=Math.min(120000*(S.rate/100), effectiveCap);
+  const annualDiscHeavy=Math.round(monthlyDiscHeavy)*12;
+  const annualBirthday=S.birthday;  // 年1回
+  const cumulMax=S.milestone;
+  const totalBenefit=annualDiscHeavy+annualBirthday+cumulMax;
   const userNet=totalBenefit-annualPay;
   document.getElementById('u-pay').innerHTML=fmt(annualPay)+'<span>/年</span>';
-  document.getElementById('u-disc').innerHTML=fmt(annualDiscMax)+'<span>/年（毎月上限利用時）</span>';
+  document.getElementById('u-disc').innerHTML=fmt(annualDiscHeavy)+'<span>/年（月¥120,000利用時）</span>';
   document.getElementById('u-cumul').textContent=fmt(cumulMax);
   const uNetEl=document.getElementById('u-net');
   uNetEl.textContent=(userNet>=0?'+':'')+fmt(userNet);
@@ -629,18 +710,13 @@ function render(){
   const beDiv=document.getElementById('u-breakeven');
   if(S.rate>0){
     const neededSpend=S.fee/(S.rate/100);
-    const capHitsAt=S.cap/(S.rate/100);
-    if(S.cap>=S.fee&&neededSpend<=capHitsAt){
-      const hrs=Math.ceil(neededSpend/HOURLY);
-      beDiv.innerHTML='<strong style="color:var(--forest)">月約'+hrs+'時間</strong>（月¥'+Math.round(neededSpend).toLocaleString()+'分）の利用で、割引だけでプラン料金の元が取れます。<br><span style="font-size:.72rem;color:var(--ink-s)">※ 時給¥3,300（手数料込み）で計算。加入直後特典・累計特典は含まず。</span>';
-    } else {
-      beDiv.innerHTML='割引の上限（¥'+S.cap.toLocaleString()+'/月）がプラン料金（¥'+S.fee.toLocaleString()+'/月）を下回るため、<strong style="color:var(--terra)">割引だけでは毎月の元は取れません</strong>。<br>加入直後特典（¥6,600）と累計特典（最大'+fmt(cumulMax)+'）を合わせると、年間では<strong style="color:var(--pos)">'+fmt(userNet)+'のお得</strong>。';
-    }
+    const hrs=Math.ceil(neededSpend/HOURLY);
+    beDiv.innerHTML='<strong style="color:var(--forest)">月約'+hrs+'時間</strong>（月¥'+Math.round(neededSpend).toLocaleString()+'分）の利用で、割引だけでプラン料金の元が取れます。<br><span style="font-size:.72rem;color:var(--ink-s)">※ 時給¥3,300（手数料込み）で計算。バースデークーポン・マイルストーン特典は別途。</span>';
   } else {
-    beDiv.innerHTML='割引率0%のため、割引による元取りはありません。特典のみで<strong style="color:var(--pos)">'+fmt(welcomeGift+cumulMax)+'</strong>の還元。';
+    beDiv.innerHTML='割引率0%のため、割引による元取りはありません。バースデークーポン（¥'+S.birthday.toLocaleString()+'）＋マイルストーン（最大¥'+cumulMax.toLocaleString()+'）のみの還元。';
   }
 }
-const sliders=[{id:'s-fee',key:'fee'},{id:'s-pace',key:'pace'},{id:'s-rate',key:'rate'},{id:'s-cap',key:'cap'},{id:'s-cumul',key:'cumul'}];
+const sliders=[{id:'s-fee',key:'fee'},{id:'s-pace',key:'pace'},{id:'s-rate',key:'rate'},{id:'s-cap',key:'capSlider'},{id:'s-birthday',key:'birthday'},{id:'s-milestone',key:'milestone'}];
 sliders.forEach(({id,key})=>{document.getElementById(id).addEventListener('input',e=>{S[key]=parseInt(e.target.value);render()})});
 
 
@@ -870,9 +946,9 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
 .d-fv-f-perks{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
 .d-fv-f-perk{padding:16px 10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;text-align:center}
 .d-fv-f-perk__when{font-size:.64rem;letter-spacing:.16em;color:var(--ink-m);text-transform:uppercase;font-weight:600;margin-bottom:6px;line-height:1.2}
-.d-fv-f-perk__v{font-family:var(--fs);font-weight:700;font-size:1.15rem;color:var(--forest);letter-spacing:-.01em;line-height:1.1;margin-bottom:6px}
-.d-fv-f-perk__v small{font-family:var(--fn);font-size:.62rem;color:var(--terra);font-weight:700;letter-spacing:.16em;margin-left:3px;vertical-align:2px;background:var(--terra-s);padding:3px 8px;border-radius:3px}
-.d-fv-f-perk__t{font-size:.66rem;color:var(--ink-s);line-height:1.5}
+.d-fv-f-perk__v{font-family:var(--fs);font-weight:700;font-size:1.15rem;color:var(--forest);letter-spacing:-.01em;line-height:1.1}
+.d-fv-f-perk__v small{font-family:var(--fs);font-size:.72rem;color:var(--forest);font-weight:700;letter-spacing:.04em;margin-left:4px;vertical-align:2px}
+.d-fv-f-perk__t{font-family:var(--fs);font-size:.78rem;letter-spacing:.06em;color:var(--ink);font-weight:700;line-height:1.3;margin-bottom:8px}
 
 
 /* Desktop FV price row */
@@ -977,11 +1053,11 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
 
 .d-tl-amount{display:flex;align-items:baseline;gap:4px;flex-shrink:0}
 .d-tl-amount__val{font-family:var(--fs);font-size:2.2rem;font-weight:700;color:var(--forest);line-height:1;letter-spacing:-.02em}
-.d-tl-amount__unit{font-size:.82rem;color:var(--ink-s);font-weight:500}
-.d-tl-amount__off{font-family:var(--fn);font-size:.62rem;color:var(--terra);font-weight:700;letter-spacing:.16em;background:var(--terra-s);padding:4px 9px;border-radius:3px;align-self:center;margin-left:6px}
+.d-tl-amount__unit{font-family:var(--fs);font-size:.82rem;color:var(--ink-s);font-weight:500}
+.d-tl-amount__off{font-family:var(--fs);font-size:1.55rem;color:var(--forest);font-weight:700;letter-spacing:.04em;align-self:center;margin-left:10px}
 
 .d-tl-title{font-family:var(--fs);font-weight:700;font-size:1.35rem;line-height:1.5;color:var(--ink);margin-bottom:10px}
-.d-tl-title em{font-style:normal;color:var(--forest)}
+.d-tl-title em{font-family:var(--fs);font-style:normal;color:var(--terra);font-weight:inherit}
 .d-tl-lead{font-size:.9rem;color:var(--ink-s);line-height:1.95;margin-bottom:16px}
 
 /* Step03: Tier progression (30h → 100h → 300h) */
@@ -1110,8 +1186,6 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
       <section class="d-hero">
         <div class="d-hero__inner">
           <div>
-            <span class="d-hero__eyebrow">2026年5月スタート</span>
-
             <h1 class="d-hero__title">
               プレミアムプラン<br>
               <em>加入者、募集中</em>。
@@ -1162,19 +1236,16 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
 
               <div class="d-fv-f-perks">
                 <div class="d-fv-f-perk">
-                  <div class="d-fv-f-perk__when">加入直後</div>
-                  <div class="d-fv-f-perk__v">¥6,600<small>OFF</small></div>
-                  <div class="d-fv-f-perk__t">初回クーポン</div>
+                  <div class="d-fv-f-perk__t">プラン割引特典</div>
+                  <div class="d-fv-f-perk__v">10%<small>OFF</small></div>
                 </div>
                 <div class="d-fv-f-perk">
-                  <div class="d-fv-f-perk__when">毎月</div>
+                  <div class="d-fv-f-perk__t">バースデー特典</div>
                   <div class="d-fv-f-perk__v">¥10,000<small>OFF</small></div>
-                  <div class="d-fv-f-perk__t">定期割引</div>
                 </div>
                 <div class="d-fv-f-perk">
-                  <div class="d-fv-f-perk__when">累計</div>
+                  <div class="d-fv-f-perk__t">マイルストーン特典</div>
                   <div class="d-fv-f-perk__v">¥30,000<small>OFF</small></div>
-                  <div class="d-fv-f-perk__t">累計特典</div>
                 </div>
               </div>
             </div>
@@ -1246,8 +1317,8 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
             <div class="d-concierge__role">
               <div class="d-concierge__role-num">03</div>
               <div class="d-concierge__role-tag">Role — 伴走</div>
-              <div class="d-concierge__role-title">定期ヒアリングで、<br>使い方を最適化します</div>
-              <div class="d-concierge__role-desc">月齢が上がれば、必要なサポートも変わります。専任コンシェルジュが定期的にお話を伺い、使い方やシッターの組み合わせを継続的に調整していきます。</div>
+              <div class="d-concierge__role-title">定期ヒアリング＆<br>専用ダイアルで寄り添う</div>
+              <div class="d-concierge__role-desc">月齢が上がれば、必要なサポートも変わります。専任コンシェルジュが定期的にお話を伺い、使い方やシッターの組み合わせを継続的に調整。<br><b style="color:var(--gold)">急な体調不良や深夜のご相談には、24時間対応の専用ダイアル</b>でいつでも繋がります。</div>
             </div>
           </div>
 
@@ -1267,36 +1338,12 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
         <div class="d-sec__inner">
           <div class="d-sec-head">
             <span class="eyebrow">Benefits</span>
-            <h2 class="d-sec-title" style="margin-top:12px">3つの<em>金額特典</em>。</h2>
-            <p class="d-lede">加入直後特典・定期特典・累計特典。3層で還ってくる特典設計。</p>
+            <h2 class="d-sec-title" style="margin-top:12px">3つの<em>プレミアム割引特典</em>。</h2>
+            <p class="d-lede">プラン割引特典、バースデー特典、マイルストーン特典。3つの割引で、ご利用が続くほどお得が重なっていく設計。</p>
           </div>
 
           <div class="d-tl">
-            <!-- STEP 01 -->
-            <div class="d-tl-step">
-              <div class="d-tl-anchor">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C9.99 3 12 5.01 12 7.5c0-2.49 2.01-4.5 4.5-4.5a2.5 2.5 0 0 1 0 5"/></svg>
-              </div>
-              <div class="d-tl-head">
-                <div class="d-tl-head-l">
-                  <div class="d-tl-step-lbl">
-                    <span class="d-tl-step-lbl__step">Step</span>
-                    <span class="d-tl-step-lbl__num">01</span>
-                  </div>
-                  <span class="d-tl-when">加入直後特典</span>
-                </div>
-                <div class="d-tl-amount">
-                  <span class="d-tl-amount__val">¥6,600</span>
-                  <span class="d-tl-amount__unit">相当</span>
-                  <span class="d-tl-amount__off">OFF</span>
-                </div>
-              </div>
-              <h3 class="d-tl-title"><em>初回無料クーポン</em>で、はじめの一歩を後押し。</h3>
-              <p class="d-tl-lead">加入直後に受け取れる<b style="color:var(--terra)">1回分のシッティングが完全無料になるクーポン2枚</b>。気になるシッターを2人まで気軽に試せます。</p>
-              <div class="d-tl-note">クーポン1枚で1回分のシッティング料金が無料に（時間・時給の上限なし、交通費等の実費は別途）。時給¥3,300・1時間利用想定で¥6,600相当のお得 ・ 加入後30日有効。</div>
-            </div>
-
-            <!-- STEP 02 -->
+            <!-- STEP 01: 定期割引（上限なし） -->
             <div class="d-tl-step">
               <div class="d-tl-anchor">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h2"/><path d="M14 14h2"/><path d="M8 18h2"/><path d="M14 18h2"/></svg>
@@ -1305,22 +1352,46 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
                 <div class="d-tl-head-l">
                   <div class="d-tl-step-lbl">
                     <span class="d-tl-step-lbl__step">Step</span>
-                    <span class="d-tl-step-lbl__num">02</span>
+                    <span class="d-tl-step-lbl__num">01</span>
                   </div>
-                  <span class="d-tl-when">定期特典</span>
+                  <span class="d-tl-when">プラン割引特典</span>
                 </div>
                 <div class="d-tl-amount">
-                  <span class="d-tl-amount__val">¥120,000</span>
-                  <span class="d-tl-amount__unit">/年</span>
+                  <span class="d-tl-amount__unit" style="font-size:.9rem;font-weight:700;color:var(--ink);margin-right:4px">いつでも</span>
+                  <span class="d-tl-amount__val">10</span>
+                  <span class="d-tl-amount__val" style="margin-left:2px">%</span>
                   <span class="d-tl-amount__off">OFF</span>
                 </div>
               </div>
-              <h3 class="d-tl-title"><em>繰り越し可能な定期利用割引</em>で、継続利用を後押し。</h3>
-              <p class="d-tl-lead">シッティング料金から10%OFF。使い切れなかった月の割引は翌月以降にそのまま繰り越せます。よくご利用いただく方ほどお得になる設計です。</p>
-              <div class="d-tl-note">上限¥10,000/月 ・ 繰り越しOK ・ 解約時には失効。</div>
+              <h3 class="d-tl-title"><em>いつでも、ずっと</em>割引。</h3>
+              <p class="d-tl-lead">プラン加入中は、シッティング料金が常に10%OFF。月にたくさん使う方も、少しだけの方も、ご利用額にそのまま比例してお得に。</p>
+              <div class="d-tl-note">割引対象：ご利用の都度お支払いいただくシッティング料金。延長料金・交通費等の実費は対象外 ・ 解約時に未利用分は失効。</div>
             </div>
 
-            <!-- STEP 03 -->
+            <!-- STEP 02: Anniversary -->
+            <div class="d-tl-step">
+              <div class="d-tl-anchor">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+              </div>
+              <div class="d-tl-head">
+                <div class="d-tl-head-l">
+                  <div class="d-tl-step-lbl">
+                    <span class="d-tl-step-lbl__step">Step</span>
+                    <span class="d-tl-step-lbl__num">02</span>
+                  </div>
+                  <span class="d-tl-when">バースデー特典</span>
+                </div>
+                <div class="d-tl-amount">
+                  <span class="d-tl-amount__val">¥10,000</span>
+                  <span class="d-tl-amount__off">OFF</span>
+                </div>
+              </div>
+              <h3 class="d-tl-title">お子さまの<em>お誕生月</em>に、特別なクーポンを。</h3>
+              <p class="d-tl-lead">お子さまのお誕生月に、<b style="color:var(--terra)">¥10,000相当のバースデークーポン</b>をお届けします。お祝いの日を、いつもよりゆとりのある時間で過ごしていただけるように。</p>
+              <div class="d-tl-note">お子さまのお誕生月に自動付与 ・ シッティング料金に充当可能 ・ 付与後6ヶ月有効。</div>
+            </div>
+
+            <!-- STEP 03: Milestone（累計） —  -->
             <div class="d-tl-step">
               <div class="d-tl-anchor">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
@@ -1331,34 +1402,34 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
                     <span class="d-tl-step-lbl__step">Step</span>
                     <span class="d-tl-step-lbl__num">03</span>
                   </div>
-                  <span class="d-tl-when">累計特典</span>
+                  <span class="d-tl-when">マイルストーン特典</span>
                 </div>
                 <div class="d-tl-amount">
+                  <span class="d-tl-amount__unit" style="font-size:.9rem;font-weight:700;color:var(--ink);margin-right:4px">最大</span>
                   <span class="d-tl-amount__val">¥30,000</span>
-                  <span class="d-tl-amount__unit">相当</span>
                   <span class="d-tl-amount__off">OFF</span>
                 </div>
               </div>
-              <h3 class="d-tl-title"><em>おでかけサポート専用クーポン</em>で、特別な時間を。</h3>
-              <p class="d-tl-lead">累計利用時間の節目ごとに、<b style="color:var(--terra)">おでかけサポート専用クーポン</b>が自動付与。テーマパークや旅行先でのサポートなどにご利用ください。有資格者シッターが同伴します。</p>
+              <h3 class="d-tl-title"><em>特別なおでかけ</em>に使える、累計割引クーポン。</h3>
+              <p class="d-tl-lead">累計ご利用時間の節目ごとに、<b style="color:var(--terra)">おでかけサポート専用クーポン</b>をお贈りします。ご継続いただくほど、クーポン額もステップアップ。テーマパーク、旅行先、遠方のご実家訪問など、保育園ではなく同伴で過ごしていただける、この時期ならではの体験へ。有資格者シッターが同伴します。</p>
 
               <!-- Tier progression -->
               <div class="d-tl-tiers">
-                <div class="d-tl-tiers__lbl">付与タイミングと金額</div>
+                <div class="d-tl-tiers__lbl">Milestone Rewards ・ 累計割引クーポン</div>
                 <div class="d-tl-tiers__bar">
                   <div class="d-tl-tier">
                     <div class="d-tl-tier__hr">累計<b>100</b>時間</div>
-                    <div class="d-tl-tier__val">¥10,000</div>
+                    <div class="d-tl-tier__val">¥5,000 OFF</div>
                   </div>
                   <div class="d-tl-tier__arrow">→</div>
                   <div class="d-tl-tier">
                     <div class="d-tl-tier__hr">累計<b>200</b>時間</div>
-                    <div class="d-tl-tier__val">¥10,000</div>
+                    <div class="d-tl-tier__val">¥10,000 OFF</div>
                   </div>
                   <div class="d-tl-tier__arrow">→</div>
                   <div class="d-tl-tier">
                     <div class="d-tl-tier__hr">累計<b>300</b>時間</div>
-                    <div class="d-tl-tier__val">¥10,000</div>
+                    <div class="d-tl-tier__val">¥15,000 OFF</div>
                   </div>
                 </div>
               </div>
@@ -1368,8 +1439,8 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
           <div class="d-tl-total">
             <div class="d-tl-total__text-wrap">
               <div class="d-tl-total__lbl">Grand Total</div>
-              <div class="d-tl-total__val">年間 <em>¥156,600相当</em> の還元</div>
-              <div class="d-tl-total__sub">初回クーポン ¥6,600 ＋ 月次最大 ¥120,000 ＋ 累計最大 ¥30,000。<br>※月次・累計特典を上限まで使い切った場合の最大値。ご利用状況により還元額は変動します。</div>
+              <div class="d-tl-total__val">年間 <em>¥184,000相当</em> の還元</div>
+              <div class="d-tl-total__sub">プラン割引特典（月¥120,000利用時で年¥144,000）＋ バースデー特典 ¥10,000相当 ＋ マイルストーン特典 最大 ¥30,000相当。<br>※ご利用状況により還元額は変動します。シッティング料金・諸費用の詳細は利用規約をご確認ください。</div>
             </div>
             <a class="d-tl-total__cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfTBHFbqWCoWncqLt-wKE02mDBNJ6YMJcvZyoVVHVEAuLmlfw/viewform?usp=header" target="_blank" rel="noopener" style="padding:14px 28px;background:var(--bg);color:var(--forest);border-radius:999px;text-decoration:none;font-weight:600;font-size:.86rem;position:relative">応募する →</a>
           </div>
@@ -1430,7 +1501,7 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
             <div class="d-flow-step"><div class="d-flow-num">01</div><h4 class="d-flow-title">応募フォーム</h4><p class="d-flow-desc">1〜2分で完了。人数限定・選考制。</p></div>
             <div class="d-flow-step"><div class="d-flow-num">02</div><h4 class="d-flow-title">選考・ヒアリング</h4><p class="d-flow-desc">通過された方に運営よりご連絡。</p></div>
             <div class="d-flow-step"><div class="d-flow-num">03</div><h4 class="d-flow-title">シッターご紹介</h4><p class="d-flow-desc">お子さまに合う候補をご提案。</p></div>
-            <div class="d-flow-step"><div class="d-flow-num">04</div><h4 class="d-flow-title">初回利用・開始</h4><p class="d-flow-desc">初回無料クーポンで気軽に面談。</p></div>
+            <div class="d-flow-step"><div class="d-flow-num">04</div><h4 class="d-flow-title">初回利用・開始</h4><p class="d-flow-desc">コンシェルジュが丁寧に伴走します。</p></div>
             <div class="d-flow-step"><div class="d-flow-num">05</div><h4 class="d-flow-title">定期ヒアリング</h4><p class="d-flow-desc">成長に合わせて継続的に最適化。</p></div>
           </div>
         </div>
@@ -1450,7 +1521,7 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
               <div class="d-price-layer__num">①</div>
               <div class="d-price-layer__lbl">プラン料金（月額固定）</div>
               <div class="d-price-layer__amt">¥9,800<span>/月（税込）</span></div>
-              <div class="d-price-layer__desc">専任サポート・加入直後特典・月次特典・累計特典へのアクセス権</div>
+              <div class="d-price-layer__desc">専任コンシェルジュ・プラン割引特典・バースデー特典・マイルストーン特典・24h専用ダイアルへのアクセス権</div>
             </div>
             <div class="d-price-plus">+</div>
             <div class="d-price-layer d-price-layer--2">
@@ -1465,11 +1536,12 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
             <div class="d-price-card__eb">What's Included</div>
             <h3 class="d-price-card__name">プラン料金 ¥9,800/月（税込）に含まれるもの</h3>
             <ul class="d-price-card__feats">
-              <li>加入直後特典：1回のシッティングが完全無料になるクーポン2枚</li>
-              <li>月次特典：定期利用割引10%OFF（上限¥10,000・繰り越し可能）</li>
-              <li>累計特典：100h / 200h / 300h達成で各¥10,000、最大¥30,000相当</li>
-              <li>専任コンシェルジュによるシッター紹介・引き継ぎ・定期ヒアリング</li>
-              <li>チーム体制で1人に依存しない運用・引き継ぎサポート</li>
+              <li><span>プラン割引特典：プラン加入中は、シッティング料金が<b>常に10%OFF</b></span></li>
+              <li><span>バースデー特典：お子さまのお誕生月に<b>¥10,000相当のバースデークーポン</b>を自動付与</span></li>
+              <li><span>マイルストーン特典：累計100h/200h/300hで¥5,000→¥10,000→¥15,000と段階UP、最大¥30,000相当</span></li>
+              <li><span>専任コンシェルジュ：シッター選定・引き継ぎ・定期ヒアリング</span></li>
+              <li><span><b style="color:var(--gold)">専用ダイアル</b>：プラン加入者だけの24時間対応窓口</span></li>
+              <li><span>チーム体制で1人に依存しない運用・引き継ぎサポート</span></li>
               <li><span><b style="color:var(--terra)">【初回ローンチ限定】</b>見守りカメラを無償プレゼント（希望者のみ・返却不要）</span></li>
             </ul>
           </div>
@@ -1492,12 +1564,14 @@ html,body{background:#E0D9C4;color:var(--ink);font-family:var(--fn);-webkit-font
           </div>
           <div class="d-faq">
             <div class="d-faq-item"><div class="d-faq-q"><span>シッティング成立は保証されていますか？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">いいえ、本プランは「専任サポート・特典へのアクセス権」を提供するもので、シッティング成立そのものを保証するサービスではありません。ご希望のシッティングが見つからなかった場合は、いつでもご解約いただけます。</div></div></div>
-            <div class="d-faq-item"><div class="d-faq-q"><span>途中で解約した場合、料金はどうなりますか？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">月単位でのご契約となり、いつでも解約いただけます。ご希望のシッティングが見つからない等の場合も、次月以降の料金は発生しません。</div></div></div>
+            <div class="d-faq-item"><div class="d-faq-q"><span>途中で解約した場合、料金はどうなりますか？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">月単位でのご契約となり、いつでも解約いただけます。ご希望のシッティングが見つからない等の場合も、次月以降の料金は発生しません。なお未利用の特典・割引は解約時に失効します。</div></div></div>
             <div class="d-faq-item"><div class="d-faq-q"><span>どのくらいの時間預けてもいいの？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">1回の利用時間に制限はありません。ただし本プランは月間30時間以上の長時間利用を想定した設計。1回が短くても月全体で30時間以上のご利用が参加条件です。</div></div></div>
             <div class="d-faq-item"><div class="d-faq-q"><span>生後すぐでも利用できますか？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">はい、生後0ヶ月からご利用いただけます。新生児対応の研修を受けたシッターがお伺いします。妊娠中の方もご応募歓迎です。</div></div></div>
-            <div class="d-faq-item"><div class="d-faq-q"><span>シッターが合わなかった場合は？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">専任コンシェルジュが間に入り別のシッターをご紹介します。加入直後の「初回無料クーポン2枚」は、まさに「合うシッターを見つけるための試用枠」です。</div></div></div>
-            <div class="d-faq-item"><div class="d-faq-q"><span>割引の「繰越」はどういう仕組み？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">定期利用割引は月上限¥10,000までの10%OFF。使い切らなかった分は翌月以降に繰り越せます。忙しかった月の割引を、使いたい月にまとめて使える設計です（解約時には失効）。</div></div></div>
-            <div class="d-faq-item"><div class="d-faq-q"><span>累計時間のカウントは？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">プラン加入期間中のシッティング利用時間を累計でカウント。100時間ごと（100h / 200h / 300h到達）に¥10,000相当のクーポンを自動付与し、最大¥30,000相当までお受け取りいただけます。クーポンは達成後6ヶ月間有効。</div></div></div>
+            <div class="d-faq-item"><div class="d-faq-q"><span>シッターが合わなかった場合は？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">専任コンシェルジュが間に入り、別のシッターをご紹介します。相性の良い方が見つかるまで、何度でもご相談いただけます。</div></div></div>
+            <div class="d-faq-item"><div class="d-faq-q"><span>プラン割引特典の仕組みは？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">ご利用いただいたシッティング料金から自動で10%OFF。<b>割引上限はなく、使った分だけそのままお得</b>になります。月の請求時に割引額が適用される形です（交通費等の実費は割引対象外）。</div></div></div>
+            <div class="d-faq-item"><div class="d-faq-q"><span>バースデー特典とは？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">お子さまのお誕生月に、<b>¥10,000相当のバースデークーポン</b>を自動付与します。シッティング料金にご充当いただけます。付与後6ヶ月有効。お祝いの日を、いつもよりゆとりある時間でお過ごしいただくためのプレゼントです。</div></div></div>
+            <div class="d-faq-item"><div class="d-faq-q"><span>マイルストーン特典のカウントは？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">プラン加入期間中のシッティング利用時間を累計でカウント。<b>累計100時間で¥5,000、200時間で¥10,000、300時間で¥15,000</b>の<b style="color:var(--terra)">おでかけサポート専用クーポン</b>を自動付与し、最大¥30,000相当までお受け取りいただけます。ご利用が続くほどクーポン額もステップアップ。クーポンは達成後6ヶ月間有効です。</div></div></div>
+            <div class="d-faq-item"><div class="d-faq-q"><span>専用ダイアルはどんなときに使えますか？</span><span class="d-faq-icon"></span></div><div class="d-faq-a"><div style="padding-top:6px">プラン加入者のみご利用いただける24時間対応窓口です。急な体調不良やスケジュール変更のご相談、深夜の不安ごとなど、必要なときにいつでもご連絡いただけます。</div></div></div>
           </div>
         </div>
       </section>
