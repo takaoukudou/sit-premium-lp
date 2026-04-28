@@ -36,7 +36,7 @@
   --fs:"Shippori Mincho B1",serif;--fn:"Noto Sans JP",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--ink);color:var(--ink);font-family:var(--fn);-webkit-font-smoothing:antialiased;line-height:1.7}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--fn);-webkit-font-smoothing:antialiased;line-height:1.7}
 
 /* ===== PC / SP 出し分け ===== */
 .d-sp-only{display:none}
@@ -474,7 +474,8 @@ br.d-sp-only{display:none}
 .d-final__btn::after{content:"→"}
 .d-final__fine{text-align:center;margin-top:14px;font-size:.72rem;color:var(--ink-m);letter-spacing:.06em}
 
-.d-footer{padding:24px 56px 12px;background:var(--ink);color:var(--bg-s);font-size:.76rem;letter-spacing:.04em}
+.d-footer{padding:24px 56px 12px;background:var(--ink);color:var(--bg-s);font-size:.76rem;letter-spacing:.04em;position:relative}
+.d-footer::after{content:"";position:absolute;left:0;right:0;top:100%;height:200px;background:var(--ink);pointer-events:none}
 .d-footer__links{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:center;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(250,246,236,.12)}
 .d-footer__links a{color:var(--bg-s);text-decoration:none;font-size:.72rem;letter-spacing:.04em;opacity:.7;transition:opacity .2s}
 .d-footer__links a:hover{opacity:1;text-decoration:underline}
@@ -1673,7 +1674,7 @@ body.is-drawer-open .d-fixed-cta{display:none !important}
 .d-preview-overlay__statusbar{
   flex-shrink:0;
   height:54px;
-  background:#fff;
+  background:#FAF6EC;
   display:flex;align-items:flex-end;justify-content:space-between;
   padding:0 28px 8px;
   font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Arial,sans-serif;
@@ -1696,10 +1697,10 @@ body.is-drawer-open .d-fixed-cta{display:none !important}
 /* URLバー（Safari iOS 15+ ボトム） */
 .d-preview-overlay__urlbar{
   flex-shrink:0;
-  background:rgba(248,248,248,.96);
+  background:rgba(250,246,236,.96);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   backdrop-filter:saturate(180%) blur(20px);
-  border-top:1px solid rgba(60,60,67,.18);
+  border-top:1px solid rgba(166,138,78,.22);
   padding:8px 14px 18px;
   display:flex;align-items:center;gap:10px;
   font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Arial,sans-serif;
@@ -1813,10 +1814,12 @@ body[data-preview="mobile"] .d-preview-overlay{display:none !important}
 
 /* ── スマホ表示時 スクロールバー非表示 ─────── */
 @media (max-width: 1024px){
-  html{scrollbar-width:none;-ms-overflow-style:none}
-  body{scrollbar-width:none;-ms-overflow-style:none}
+  html,body{scrollbar-width:none;-ms-overflow-style:none}
   html::-webkit-scrollbar,
-  body::-webkit-scrollbar{width:0;height:0;display:none}
+  body::-webkit-scrollbar{width:0;height:0;display:none;background:transparent}
+  /* 内部スクロール領域も含めて全要素 */
+  *{scrollbar-width:none;-ms-overflow-style:none}
+  *::-webkit-scrollbar{width:0;height:0;display:none;background:transparent}
 }
 
 /* ── 3つの価値カード 画像対応 ─────── */
