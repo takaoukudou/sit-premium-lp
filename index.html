@@ -393,6 +393,123 @@ br.d-sp-only{display:none}
 .d-tl-total__val em{font-style:normal;color:var(--terra-s)}
 .d-tl-total__sub{font-size:.86rem;color:rgba(250,246,236,.88);margin-top:10px;line-height:1.7}
 
+/* Benefits — PC asymmetric layout (Benefit03 = hero top, 01/02 below in 2 cols) */
+@media (min-width: 1025px){
+  .d-tl{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    column-gap:24px;
+    row-gap:24px;
+    padding-left:0;
+    max-width:1140px;
+    margin-top:48px;
+  }
+  .d-tl::before{display:none}
+
+  .d-tl-step{
+    margin-bottom:0;
+    padding:30px 26px 26px;
+  }
+  /* アイコンはカード左上にバッジ風に配置（全カード共通） */
+  .d-tl-anchor{
+    left:26px;
+    top:30px;
+    transform:none;
+    width:46px;
+    height:46px;
+  }
+  .d-tl-anchor svg{width:22px;height:22px}
+
+  .d-tl-head{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+    margin-bottom:14px;
+    padding-bottom:14px;
+    padding-left:60px;
+    min-height:46px;
+  }
+  .d-tl-head-l{flex-wrap:nowrap;gap:10px;width:100%;align-items:baseline}
+  .d-tl-step-lbl__num{font-size:1.3rem}
+  .d-tl-when{font-size:1rem;padding-left:12px}
+  .d-tl-amount{align-self:flex-start;flex-wrap:wrap;gap:2px}
+  .d-tl-amount__val{font-size:1.85rem}
+  .d-tl-amount__unit{font-size:.82rem !important}
+  .d-tl-amount__off{font-size:1.3rem;margin-left:6px}
+
+  .d-tl-title{font-size:1.16rem;line-height:1.55}
+  .d-tl-lead{font-size:.86rem;line-height:1.95;margin-bottom:14px}
+  .d-tl-note{font-size:.76rem;padding:10px 14px;line-height:1.75}
+
+  /* Benefit01, Benefit02 → 上段2列 */
+  .d-tl-step:nth-child(1){grid-column:1;grid-row:1}
+  .d-tl-step:nth-child(2){grid-column:2;grid-row:1}
+
+  /* Benefit03 = クライマックス（下段全幅・左:コピー / 右:ティア） */
+  .d-tl-step:nth-child(3){
+    grid-column:1 / -1;
+    grid-row:2;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);
+    grid-template-rows:auto 1fr;
+    column-gap:40px;
+    row-gap:14px;
+    padding:32px 40px 36px;
+  }
+  /* アイコンはBenefit03のpadding-leftに合わせて左寄せ */
+  .d-tl-step:nth-child(3) .d-tl-anchor{left:40px}
+  .d-tl-step:nth-child(3) .d-tl-head{
+    grid-column:1;grid-row:1;
+    margin-bottom:0;padding-bottom:14px;
+  }
+  .d-tl-step:nth-child(3) .d-tl-lead{grid-column:1;grid-row:2;margin-bottom:0;align-self:start;font-size:.92rem;line-height:2}
+  .d-tl-step:nth-child(3) .d-tl-tiers{
+    grid-column:2;grid-row:1 / span 2;
+    align-self:stretch;
+    margin:0;
+    padding:18px 18px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .d-tl-step:nth-child(3) .d-tl-tiers__lbl{margin-bottom:14px}
+  .d-tl-step:nth-child(3) .d-tl-tiers__bar{
+    flex-direction:row;
+    gap:6px;
+    align-items:stretch;
+  }
+  .d-tl-step:nth-child(3) .d-tl-tier{
+    flex:1;flex-direction:column;
+    text-align:center;align-items:center;justify-content:center;
+    padding:14px 8px;width:auto;
+  }
+  .d-tl-step:nth-child(3) .d-tl-tier__hr{
+    margin-bottom:6px;font-size:.72rem;white-space:nowrap;
+  }
+  .d-tl-step:nth-child(3) .d-tl-tier__hr b{font-size:1rem}
+  .d-tl-step:nth-child(3) .d-tl-tier__val{
+    font-size:1.05rem;text-align:center;
+  }
+  .d-tl-step:nth-child(3) .d-tl-tier__arrow{
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 auto;color:var(--terra);font-size:.95rem;
+  }
+
+  /* デフォルトの縦積みtiers（Step01/02には影響なし、Step03のみ上書き済） */
+  .d-tl-tiers{padding:12px 12px;margin-bottom:0}
+  .d-tl-tiers__lbl{margin-bottom:10px}
+  .d-tl-tiers__bar{flex-direction:column;gap:6px}
+  .d-tl-tier{
+    display:flex;align-items:center;justify-content:space-between;
+    text-align:left;padding:9px 12px;width:100%;
+  }
+  .d-tl-tier__hr{margin-bottom:0;flex-shrink:0;font-size:.74rem;white-space:nowrap}
+  .d-tl-tier__hr b{font-size:.96rem}
+  .d-tl-tier__val{
+    font-size:.98rem;flex-shrink:0;text-align:right;
+    font-variant-numeric:tabular-nums;font-feature-settings:"tnum";
+  }
+  .d-tl-tier__arrow{display:none}
+}
+
 /* Scenes desktop */
 .d-scenes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .d-scene{padding:24px 20px;background:var(--bg);border:1px solid var(--line);border-radius:5px}
@@ -1020,7 +1137,7 @@ br.d-sp-only{display:none}
 
   /* Timeline */
   .d-tl{padding:0 0 0 22px;margin-top:28px}
-  .d-tl::before{left:22px}
+  .d-tl::before{display:none}
   .d-tl-step{padding:22px 18px 22px 40px;margin-bottom:16px;border-radius:6px}
   .d-tl-step::before{width:3px;border-radius:6px 0 0 6px}
   .d-tl-anchor{left:-18px;top:18px;width:44px;height:44px;border-width:1.5px}
@@ -2281,7 +2398,7 @@ body[data-preview="mobile"] .d-preview-overlay{display:none !important}
               <div class="d-tl-head">
                 <div class="d-tl-head-l">
                   <div class="d-tl-step-lbl">
-                    <span class="d-tl-step-lbl__step">Step</span>
+                    <span class="d-tl-step-lbl__step">No.</span>
                     <span class="d-tl-step-lbl__num">01</span>
                   </div>
                   <span class="d-tl-when">プラン割引特典</span>
@@ -2306,7 +2423,7 @@ body[data-preview="mobile"] .d-preview-overlay{display:none !important}
               <div class="d-tl-head">
                 <div class="d-tl-head-l">
                   <div class="d-tl-step-lbl">
-                    <span class="d-tl-step-lbl__step">Step</span>
+                    <span class="d-tl-step-lbl__step">No.</span>
                     <span class="d-tl-step-lbl__num">02</span>
                   </div>
                   <span class="d-tl-when">バースデー特典</span>
@@ -2328,7 +2445,7 @@ body[data-preview="mobile"] .d-preview-overlay{display:none !important}
               <div class="d-tl-head">
                 <div class="d-tl-head-l">
                   <div class="d-tl-step-lbl">
-                    <span class="d-tl-step-lbl__step">Step</span>
+                    <span class="d-tl-step-lbl__step">No.</span>
                     <span class="d-tl-step-lbl__num">03</span>
                   </div>
                   <span class="d-tl-when">マイルストーン特典</span>
